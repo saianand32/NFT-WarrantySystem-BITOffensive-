@@ -126,7 +126,6 @@ const Footer = () => {
         <List >
           <ListItem><Link to="/" >Home</Link></ListItem>
           <ListItem><Link to="/cart">Cart</Link></ListItem>
-          <ListItem> <Link to="/">Fabrics</Link></ListItem>
           <ListItem> <Link to="/user/history">Wallpapers</Link></ListItem>
         
           <ListItem> <Link to="/user/history">My Account</Link> </ListItem>
@@ -140,14 +139,13 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> First Impression 8-11, Om
-          Chambers, Ground floor, Kemps Corner, Mumbai - 400036
+          <Room style={{ marginRight: "10px" }} /> BIToffensive_Store, Nitte Meenakshi Institute of Technology,Bangalore-560064
         </ContactItem>
         <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> +91-22-23631490, +91-22-23634167
+          <Phone style={{ marginRight: "10px" }} /> +91-34-56782954, 91-34-56782957
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> meher@firstimp.in,  firstimp777@gmail.com
+          <MailOutline style={{ marginRight: "10px" }} /> nitish@gmail.com,  utsav@gmail.com, saishwar@gmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>

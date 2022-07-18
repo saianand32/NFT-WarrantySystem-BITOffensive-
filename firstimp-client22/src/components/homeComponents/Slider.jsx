@@ -6,7 +6,7 @@ import { mobile } from "../../responsive";
 
 const Container = styled.div`
     width:100%;
-    height:100vh;
+    height:40vh;
     display:flex;
     overflow: hidden;
     position: relative;
@@ -52,12 +52,12 @@ const Slide = styled.div`
 `
 const ImageContainer = styled.div`
 padding:5px 5px;
-    height: 100%;
+    height: -40vh;
     width: 100%;
 `
 const Image = styled.img`
-    object-fit: cover;
-    height: 100%;
+    object-fit: fill;
+    height: -50px;
     width: 100%;
  `
 // const Title = styled.h1`
@@ -115,7 +115,7 @@ const Slider = () => {
             sliderItems.map((item)=>
             ( <Slide key={item.id}>
                   <ImageContainer >
-                      <Image src={item.img}alt="img"/>
+                      <Image src={item.img}alt="img"  />
                   </ImageContainer>
                  
               </Slide>))}

@@ -83,8 +83,8 @@ const App = () => {
        <LoadingOutlined className="h4 p-3 text-danger" /> First Impression
       </div>
     }>
-      {/* <Announcement /> */}
       <Header />
+      <Announcement />
       <ToastContainer />
       <SideDrawer />
       <Switch>

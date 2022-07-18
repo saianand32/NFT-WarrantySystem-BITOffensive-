@@ -11,26 +11,26 @@ import Slider from "../components/homeComponents/Slider";
 
 const Home = () => {
   return (
-    <>
-    <Background />
+    <div>
+    {/* <Background /> */}
      <Slider />
-      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron text-danger">
+      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron " style={{background:"#212125",color:"#b3d146"}}>
         New Arrivals
       </h4>
       <NewArrivals />
      
       <br />
-      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron text-danger">
+      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron " style={{background:"#212125",color:"#b3d146"}}>
         Best Sellers
       </h4>
       <BestSellers />
-      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron text-danger">
+      <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron " style={{background:"#212125",color:"#b3d146"}}>
         Categories
       </h4>
       <CategoryList />
       
       <br />
-    </>
+    </div>
   );
 };
 

@@ -40,40 +40,42 @@ const Header = () => {
     });
     history.push("/login");
   };
-
+  
   return (
-    <Menu onClick={handleClick} mode="horizontal">
-      <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Home</Link>
+    <Menu onClick={handleClick} mode="horizontal" id="navMenu" style={{background:"#212125",height:"50px"}}>
+      
+          <Item  className="nav_logo_container">
+        <div className="nav_logo_container">
+          {/* <img className="logo_img" src={logo} alt="logo" /> */}
+         <div className="nav_logo">First Impression</div>
+        </div>
       </Item>
-      <Item key="shop" icon={<ShopOutlined />}>
-        <Link to="/shop">Shop</Link>
+        <Item key="home" icon={<AppstoreOutlined style={{color:"#b3d146"}} />}>
+        <Link to="/" id = "navLinkText">Home</Link>
       </Item>
-      <Item key="cart" icon={<ShoppingCartOutlined />}>
+        <Item key="shop" icon={<ShopOutlined style={{color:"#b3d146"}}/>}>
+        <Link to="/shop" id = "navLinkText">Shop</Link>
+      </Item>
+        <Item key="cart" icon={<ShoppingCartOutlined style={{color:"#b3d146"}}/>}>
         <Link to="/cart">
-          <Badge count={cart.length} offset="9 0">
+          <Badge count={cart.length} offset="9 0" id = "navLinkText">
             cart
           </Badge>
         </Link>
       </Item>
-      <Item  className="nav_logo_container">
-        <div className="nav_logo_container">
-          <img className="logo_img" src={logo} alt="logo" />
-         <div className="nav_logo">First Impression</div>
-        </div>
-      </Item>
+  
 
      
 
       {!user && (
-        <Item key="register" icon={<UserAddOutlined />} className="float-right">
-          <Link to="/register">Register</Link>
+        <Item key="register" icon={<UserAddOutlined style={{color:"#b3d146"}} />} className="float-right">
+          <Link to="/register" id = "navLinkText">Register</Link>
         </Item>
       )}
 
       {!user && (
-        <Item key="login" icon={<UserOutlined />} className="float-right">
-          <Link to="/login">Login</Link>
+        <Item key="login" icon={<UserOutlined style={{color:"#b3d146"}}/>} className="float-right">
+          <Link to="/login" id = "navLinkText">Login</Link>
         </Item>
       )}
 
@@ -82,10 +84,11 @@ const Header = () => {
           icon={<SettingOutlined />}
           title={user.email && user.email.split("@")[0]}
           className="float-right"
+          style={{color:"#b3d146"}}
         >
           {user && user.role === "subscriber" && (
             <Item>
-              <Link to="/user/history">Dashboard</Link>
+              <Link to="/user/history" >Dashboard</Link>
             </Item>
           )}
 

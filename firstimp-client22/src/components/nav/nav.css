@@ -1,6 +1,8 @@
 .nav_logo_container {
 
-    margin-left: calc(5.5rem + 10vw);
+    /* margin-left: calc(5.5rem + 10vw); */
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     /* background: rgba(0, 0, 0, 0.206); */
     display: flex;
     align-items: center;
@@ -14,8 +16,8 @@
 
 .nav_logo {
 
-    font-family: "Mistral Regular";
-    color: black;
+    /* font-family: "Mistral Regular"; */
+    color: #b3d146;
     font-weight: 400;
     font-size: 35px;
     text-decoration: none;
@@ -25,7 +27,16 @@
 .logo_img {
     width: 48px;
     padding: 4px;
-    margin: 0 10px;
+    /* margin: 0 10px; */
+}
+;
+#navMenu{
+  background: black;
+}
+
+#navLinkText{
+    color:white;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
