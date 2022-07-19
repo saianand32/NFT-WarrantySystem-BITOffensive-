@@ -10,6 +10,8 @@ import Announcement from "./components/homeComponents/Announcement";
 import Footer from "./components/footer/Footer"
 import Contact from "./pages/Contact";
 import SliderImageAdd from "./pages/admin/SliderImageAdd";
+import { Category } from "@material-ui/icons";
+import CategoryList from "./components/category/CategoryList";
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
@@ -84,7 +86,7 @@ const App = () => {
       </div>
     }>
       <Header />
-      <Announcement />
+      <CategoryList/>
       <ToastContainer />
       <SideDrawer />
       <Switch>

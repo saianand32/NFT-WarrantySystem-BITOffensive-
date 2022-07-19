@@ -17,7 +17,8 @@
 .nav_logo {
 
     /* font-family: "Mistral Regular"; */
-    color: #b3d146;
+    font-family: 'Balsamiq Sans', cursive;
+    color:#b3d146;
     font-weight: 400;
     font-size: 35px;
     text-decoration: none;

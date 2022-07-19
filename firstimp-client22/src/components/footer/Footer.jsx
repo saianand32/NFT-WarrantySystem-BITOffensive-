@@ -14,8 +14,9 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
-  background-color: #030205;
-  background-image: url("https://www.transparenttextures.com/patterns/black-linen-2.png");
+  background-color: #131921;
+  margin-top: 50px;
+  // background-image: url("https://www.transparenttextures.com/patterns/black-linen-2.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   color: white;
   ${mobile({ flexDirection: "column" })}
@@ -63,7 +64,8 @@ const Center = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 30px;
-  color: white;
+  color: #B3D146;
+  font-weight: bold;
 `;
 
 const List = styled.ul`

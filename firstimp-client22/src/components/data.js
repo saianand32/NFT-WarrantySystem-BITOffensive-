@@ -2,23 +2,31 @@
 
 
 export const sliderItems = [
+  
     {
       id: 1,
-      img: "https://1502fabrics.com/wp-content/uploads/2018/08/yellow-and-gray-home-decor-fabulous-blend-of-teal-and-gold-in-the-living-room-design-high-fashion-home-yellow-and-gray-home-decor-fabric.jpg",
+      img: "https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/July/PFS_Unrechero/D50756151_WLA_GW_Heroes_Unrec__Tall_Hero_3000x1200._CB632954420_.jpg",
       title: "SUMMER SALE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "f5fafd",
     },
     {
       id: 2,
-      img: "https://image.shutterstock.com/shutterstock/photos/505072942/display_1500/stock-photo-curtain-interior-decoration-in-living-room-with-sunlight-505072942.jpg",
+      img: "https://images-eu.ssl-images-amazon.com/images/G/31/img21/MI/Under1499_Tallhero_3000x1200._CB634138928_.jpg",
       title: "AUTUMN COLLECTION",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fcf1ed",
     },
     {
       id: 3,
-      img: "https://1502fabrics.com/wp-content/uploads/2018/08/yellow-and-gray-home-decor-fabulous-blend-of-teal-and-gold-in-the-living-room-design-high-fashion-home-yellow-and-gray-home-decor-fabric.jpg",
+      img: "https://images-eu.ssl-images-amazon.com/images/G/31/img19/Pets/April-22/DesktopTallhero_3000x1200_2._CB623843558_.jpg",
+      title: "LOUNGEWEAR LOVE",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fbf0f4",
+    },
+    {
+      id: 4,
+      img: "https://images-eu.ssl-images-amazon.com/images/G/31/img21/kitchen/GW/July/3000x1200_1._CB633091933_.jpg",
       title: "LOUNGEWEAR LOVE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fbf0f4",

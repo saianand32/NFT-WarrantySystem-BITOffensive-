@@ -10,6 +10,11 @@ const Container = styled.div`
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  background:#232F3E;
+  // background:#1b1c1d;
+  z-index: 1000;
+  height: 28px;
+  margin-top: -1px;
   flex-wrap: wrap;
   @media (max-width: 620px) {
     padding: 0px;
@@ -20,10 +25,11 @@ const Container = styled.div`
 `;
 const ContainerSub = styled.div`
   flex: 1;
-  margin: 3px;
-  height: 70vh;
+  margin: 2px;
+  // height: 5vh;
   position: relative;
   flex-wrap: wrap;
+ 
 `;
 
 
@@ -37,6 +43,7 @@ const Image = styled.img`
 
 const Info = styled.div`
   position: absolute;
+  font-size: 10px
   top: 0;
   left: 0;
   width: 100%;
@@ -48,8 +55,20 @@ const Info = styled.div`
 `;
 
 const Title = styled.h1`
-    color: #1a1c1d;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
+  font-size: 1.15em;
+  padding: 7px;
+  // font-weight:bold;
+   color:white;
+   margin-top:2px;
+   &:hover {
+    background-color: #1b242f;
+    // border: 1.5px solid #b3d146;
+    border-radius: 2px;
+     
+    color:#b3d146;
+  }
+
 `;
 
 const Button = styled.button`
@@ -79,10 +98,11 @@ const CategoryList = () => {
     categories.map((c) => (
       <ContainerSub key={c._id}>
         <Link to={`category/${c.slug}`}>
-        <Image src="https://media.istockphoto.com/photos/posters-in-cozy-apartment-interior-picture-id943910360" />
+        {/* <Image src="https://media.istockphoto.com/photos/posters-in-cozy-apartment-interior-picture-id943910360" /> */}
         <Info> 
-        <Title  key={c._id}>{c.name}</Title>
-        <Button>SHOP NOW</Button>
+       
+        <Title  key={c._id} >{c.name}</Title>
+     
         </Info>
           {/* <div
             className="btn btn-outlined-primary btn-lg btn-block btn-raised m-4 text-primary"

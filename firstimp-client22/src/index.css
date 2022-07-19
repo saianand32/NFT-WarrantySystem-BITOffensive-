@@ -1,7 +1,12 @@
+:root{
+    font-family: 'Balsamiq Sans', cursive;
+      }
+
 .slider img{
     height: 450px;
     object-fit: cover;
 }
+
 
 .cart-details{
     font-size: 14px;

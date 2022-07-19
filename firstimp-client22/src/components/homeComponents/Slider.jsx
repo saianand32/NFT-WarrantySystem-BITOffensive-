@@ -6,8 +6,9 @@ import { mobile } from "../../responsive";
 
 const Container = styled.div`
     width:100%;
-    height:40vh;
+    height:50vh;
     display:flex;
+    margin-top:10px;
     overflow: hidden;
     position: relative;
     ${mobile({ height:"40vh" })}
@@ -52,6 +53,7 @@ const Slide = styled.div`
 `
 const ImageContainer = styled.div`
 padding:5px 5px;
+
     height: -40vh;
     width: 100%;
 `
@@ -80,7 +82,7 @@ const Image = styled.img`
 //   cursor: pointer;
 // `
 ;
-const delay = 2500;
+const delay = 10500;
 
 const Slider = () => {
  const [slideIndex, setSlideIndex] = useState(0);
@@ -116,9 +118,10 @@ const Slider = () => {
             ( <Slide key={item.id}>
                   <ImageContainer >
                       <Image src={item.img}alt="img"  />
+                      {/* <Image src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/July/PFS_Unrechero/D50756151_WLA_GW_Heroes_Unrec__Tall_Hero_3000x1200._CB632954420_.jpg" alt="img"  /> */}
                   </ImageContainer>
                  
-              </Slide>))}
+              </Slide>))}-
             
               
                </Wrapper> 
