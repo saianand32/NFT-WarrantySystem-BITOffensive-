@@ -249,6 +249,9 @@ const productSchema = new mongoose.Schema(
     productId: {
       type: String,
     },
+    warrentyMonths: {
+      type: Number,
+    },
     ratings: [
       {
         star: Number,
