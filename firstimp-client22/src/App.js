@@ -20,6 +20,7 @@ const Header = lazy(() => import("./components/nav/Header"));
 const RegisterComplete = lazy(() => import("./pages/auth/RegisterComplete"));
 const ForgotPassword = lazy(() => import("./pages/auth/ForgotPassword"));
 const History = lazy(() => import("./pages/user/History"));
+
 const UserRoute = lazy(() => import("./components/routes/UserRoute"));
 const AdminRoute = lazy(() => import("./components/routes/AdminRoute"));
 const Password = lazy(() => import("./pages/user/Password"));
@@ -30,6 +31,9 @@ const CategoryCreate = lazy(() =>
 );
 const CategoryUpdate = lazy(() =>
   import("./pages/admin/category/CategoryUpdate")
+);
+const Nftwarranty = lazy(() =>
+  import("./pages/admin/NftWarranty")
 );
 const SubCreate = lazy(() => import("./pages/admin/sub/SubCreate"));
 const SubUpdate = lazy(() => import("./pages/admin/sub/SubUpdate"));
@@ -107,6 +111,8 @@ const App = () => {
         <AdminRoute exact path="/admin/product" component={ProductCreate} />
         <AdminRoute exact path="/admin/products" component={AllProducts} />
         <AdminRoute exact path="/admin/sliderimageupload" component={SliderImageAdd} />
+        <AdminRoute exact path="/admin/nftwarranty" component={Nftwarranty} />
+
         <AdminRoute
           exact
           path="/admin/product/:slug"

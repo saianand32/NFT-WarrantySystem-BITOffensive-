@@ -186,6 +186,9 @@ const initialState = {
   weight:"",
   repeatlength:"",
   rollLength:"",
+  serialNumber:"",
+    productId:"",
+    warrantyMonths:""
 
 
 };

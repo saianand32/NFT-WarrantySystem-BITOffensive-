@@ -50,6 +50,9 @@ const ProductUpdateForm = ({
     photo,
 
     delivery,
+    serialNumber,
+    productId,
+    warrantyMonths
     
   } = values;
 
@@ -87,6 +90,36 @@ const ProductUpdateForm = ({
           name="brand"
           className="form-control"
           value={brand}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label>Product ID</label>
+        <input
+          type="text"
+          name="productId"
+          className="form-control"
+          value={productId}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label>serial No</label>
+        <input
+          type="text"
+          name="serialNumber"
+          className="form-control"
+          value={serialNumber}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form-group">
+        <label>warranty in Months</label>
+        <input
+          type="text"
+          name="warrantyMonths"
+          className="form-control"
+          value={warrantyMonths}
           onChange={handleChange}
         />
       </div>

@@ -50,6 +50,12 @@ const AdminNav = () => (
           Slider Image
         </Link>
       </li>
+
+      <li className="nav-item">
+        <Link to="/admin/nftwarranty" className="nav-link">
+         NFT WARRANTY
+        </Link>
+      </li>
     </ul>
   </nav>
 );

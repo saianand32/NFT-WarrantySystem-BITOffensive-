@@ -48,8 +48,9 @@ const ProductCreateForm = ({
     photo,
 
     delivery,
-    serialNo,
-    ProductId,
+    serialNumber,
+    productId,
+    warrantyMonths
     
   } = values;
 
@@ -70,20 +71,20 @@ const ProductCreateForm = ({
 
         <input
           type="text"
-          name="ProductId"
+          name="productId"
           className="form-control"
-          value={ProductId}
+          value={productId}
           onChange={handleChange}
         />
      </div>
      <div className="form-group">
-        <label>Serial</label>
+        <label>Serial No</label>
 
         <input
           type="text"
-          name="serialNo"
+          name="serialNumber"
           className="form-control"
-          value={serialNo}
+          value={serialNumber}
           onChange={handleChange}
         />
      </div>
@@ -110,6 +111,17 @@ const ProductCreateForm = ({
           onChange={handleChange}
         />
       </div>
+      <div className="form-group">
+        <label>Warranty in Months</label>
+
+        <input
+          type="text"
+          name="warrantyMonths"
+          className="form-control"
+          value={warrantyMonths}
+          onChange={handleChange}
+        />
+     </div>
       <div className="form-group">
         <label>Material</label>
 

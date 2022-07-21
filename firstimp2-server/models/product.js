@@ -249,7 +249,7 @@ const productSchema = new mongoose.Schema(
     productId: {
       type: String,
     },
-    warrentyMonths: {
+    warrantyMonths: {
       type: Number,
     },
     ratings: [

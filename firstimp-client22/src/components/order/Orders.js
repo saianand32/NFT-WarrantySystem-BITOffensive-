@@ -36,7 +36,9 @@ const Orders = ({ orders, handleStatusChange }) => {
         {order.products.map((p, i) => (
           <tr key={i}>
             <td>
-              <strong>{p.product.title}</strong>
+              <strong>{p.product.serialNumber}</strong>
+              <strong>{p.product.productId}</strong>
+              <strong>{p.product.warrantyMonths}</strong>
             </td>
             <td>{p.product.price}</td>
             <td>{p.product.brand}</td>
