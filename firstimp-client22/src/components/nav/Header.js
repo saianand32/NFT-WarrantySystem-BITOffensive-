@@ -47,7 +47,7 @@ const Header = () => {
           <Item  className="nav_logo_container">
         <div className="nav_logo_container">
           {/* <img className="logo_img" src={logo} alt="logo" /> */}
-         <div className="nav_logo">First Impression</div>
+         <div className="nav_logo">BIToffensive_Store</div>
         </div>
       </Item>
         <Item key="home" icon={<AppstoreOutlined style={{color:"#b3d146"}} />}>

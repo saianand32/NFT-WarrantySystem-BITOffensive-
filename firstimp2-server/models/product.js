@@ -243,6 +243,12 @@ const productSchema = new mongoose.Schema(
     rollLength: {
       type: Number,
     },
+    serialNumber: {
+      type: String,
+    },
+    productId: {
+      type: String,
+    },
     ratings: [
       {
         star: Number,

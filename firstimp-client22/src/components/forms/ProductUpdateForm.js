@@ -66,6 +66,8 @@ const ProductUpdateForm = ({
         />
       </div>
 
+      
+
       <div className="form-group">
         <label>Description</label>
 

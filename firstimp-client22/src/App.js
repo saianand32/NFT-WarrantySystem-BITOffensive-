@@ -82,7 +82,7 @@ const App = () => {
   return (
     <Suspense fallback={
       <div className="col text-center p-5 text-primary">
-       <LoadingOutlined className="h4 p-3 text-danger" /> First Impression
+       <LoadingOutlined className="h4 p-3 text-danger" /> BIToffensive_Store
       </div>
     }>
       <Header />

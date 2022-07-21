@@ -48,6 +48,8 @@ const ProductCreateForm = ({
     photo,
 
     delivery,
+    serialNo,
+    ProductId,
     
   } = values;
 
@@ -63,6 +65,28 @@ const ProductCreateForm = ({
           onChange={handleChange}
         />
       </div>
+      <div className="form-group">
+        <label>Product ID</label>
+
+        <input
+          type="text"
+          name="ProductId"
+          className="form-control"
+          value={ProductId}
+          onChange={handleChange}
+        />
+     </div>
+     <div className="form-group">
+        <label>Serial</label>
+
+        <input
+          type="text"
+          name="serialNo"
+          className="form-control"
+          value={serialNo}
+          onChange={handleChange}
+        />
+     </div>
 
       <div className="form-group">
         <label>Description</label>
