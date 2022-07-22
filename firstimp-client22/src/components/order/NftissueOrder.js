@@ -24,9 +24,11 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
       <thead className="thead-light">
         <tr>
           <th scope="col">Title</th>
+          <th scope="col">Product-Id</th>
+          <th scope="col">Serial-Number</th>
           <th scope="col">Price</th>
           <th scope="col">Brand</th>
-          <th scope="col">Color</th>
+          <th scope="col">Warranty</th>
           <th scope="col">Quantity</th>
           <th scope="col">Shipping</th>
         </tr>
@@ -36,13 +38,16 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
         {order.products.map((p, i) => (
           <tr key={i}>
             <td>
-              <strong>{p.product.serialNumber}</strong>
-              <strong>{p.product.productId}</strong>
-              <strong>{p.product.warrantyMonths}</strong>
+              <strong>{p.product.title}</strong>
+              {/* <strong>{p.product.productId}</strong> */}
+              {/* <strong>{p.product.warrantyMonths}</strong> */}
             </td>
+            <td>{p.product.productId} </td>
+            <td>{p.product.serialNumber} </td>
             <td>{p.product.price}</td>
             <td>{p.product.brand}</td>
-            <td>{p.product.color}</td>
+            <td>{p.product.warrantyMonths + "-months"}</td>
+            {/* <td>{p.product.color}</td> */}
             <td>{p.count}</td>
 
             <td>
