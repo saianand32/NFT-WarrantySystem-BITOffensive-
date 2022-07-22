@@ -221,29 +221,7 @@ const ProductCreateForm = ({
           onChange={handleChange}
         />
       </div>
-      <div className="form-group">
-        <label>Repeat Length (in inch)</label>
-
-        <input
-          type="text"
-          name="repeatLength"
-          className="form-control"
-          value={repeatLength}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label>Roll Length (in cm)</label>
-
-        <input
-          type="text"
-          name="rollLength"
-          className="form-control"
-          value={rollLength}
-          onChange={handleChange}
-        />
-      </div>
-      
+     
       <div className="form-group">
         <label>Price</label>
 
@@ -279,6 +257,9 @@ const ProductCreateForm = ({
           <option value="Yes">Yes</option>
         </select>
       </div>
+
+  
+
       <div className="form-group">
         <label>Quantity</label>
 
@@ -288,6 +269,8 @@ const ProductCreateForm = ({
           className="form-control"
           value={quantity}
           onChange={handleChange}
+          min="1" 
+          max="1"
         />
      </div>
       <div className="form-group">

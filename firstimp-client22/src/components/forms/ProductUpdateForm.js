@@ -222,7 +222,7 @@ const ProductUpdateForm = ({
           onChange={handleChange}
         />
       </div>
-      <div className="form-group">
+      {/* <div className="form-group">
         <label>Repeat Length (in inch)</label>
 
         <input
@@ -232,8 +232,8 @@ const ProductUpdateForm = ({
           value={repeatLength}
           onChange={handleChange}
         />
-      </div>
-      <div className="form-group">
+      </div> */}
+      {/* <div className="form-group">
         <label>Roll Length (in cm)</label>
 
         <input
@@ -243,7 +243,7 @@ const ProductUpdateForm = ({
           value={rollLength}
           onChange={handleChange}
         />
-      </div>
+      </div> */}
       <div className="form-group">
         <label>Price</label>
 
@@ -278,6 +278,20 @@ const ProductUpdateForm = ({
           <option value="Yes">Yes</option>
         </select>
       </div>
+
+      {/* <div className="form-group">
+        <label>Quantity</label>
+        <select
+          name="quantity"
+          className="form-control"
+          onChange={handleChange}
+          value={quantity === "1" ? 1 : 0}
+        >
+         <option value="1">1</option>
+        </select>
+      </div> */}
+
+      
       <div className="form-group">
         <label>Quantity</label>
 
@@ -287,6 +301,8 @@ const ProductUpdateForm = ({
           className="form-control"
           value={quantity}
           onChange={handleChange}
+          min="1" 
+          max="1"
         />
       </div>
       <div className="form-group">
