@@ -42,7 +42,7 @@ const Header = () => {
   };
   
   return (
-    <Menu onClick={handleClick} mode="horizontal" id="navMenu" style={{background:"#131921",height:"50px"}}>
+    <Menu onClick={handleClick} mode="horizontal" id="navMenu" style={{background:"#131921",height:"50px",zIndex:'1500'}}>
       
           <Item  className="nav_logo_container">
         <div className="nav_logo_container">

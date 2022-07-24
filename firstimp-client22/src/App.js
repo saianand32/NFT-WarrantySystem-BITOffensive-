@@ -12,6 +12,9 @@ import Contact from "./pages/Contact";
 import SliderImageAdd from "./pages/admin/SliderImageAdd";
 import { Category } from "@material-ui/icons";
 import CategoryList from "./components/category/CategoryList";
+import Funlandingpage from "./pages/FunZone/FunLandingpage/Funlandingpage";
+import Pacmangame from "./pages/FunZone/PacMan/Pacmangame";
+import Spacevaders from "./pages/FunZone/Spacevaders/Spacevaders";
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
@@ -91,8 +94,8 @@ const App = () => {
     }>
       <Header />
       <CategoryList/>
-      <ToastContainer />
-      <SideDrawer />
+      <ToastContainer style={{zIndex:"1500"}}/>
+      {/* <SideDrawer /> */}
       <Switch>
         <UserRoute exact path="/user/history" component={History} />
         <UserRoute exact path="/user/password" component={Password} />
@@ -129,9 +132,14 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/register/complete" component={RegisterComplete} />
         <Route exact path="/forgot/password" component={ForgotPassword} />
+        
+        
        
       </Switch>
       <Route exact path="/contact" component={Contact} />
+      <Route exact path="/funzone" component={Funlandingpage} />
+      <Route exact path="/pacman" component={Pacmangame} />
+      <Route exact path="/vaders" component={Spacevaders} />
       <Footer />
     </Suspense>
   );

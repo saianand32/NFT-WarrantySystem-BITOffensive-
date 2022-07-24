@@ -117,11 +117,28 @@ const CategoryList = () => {
       
     ));
   return (
-    <Container>
+    <Container style={{zIndex:1500}}>
       
         {loading ? <Spin className="text-center" /> : showCategories()}
+
+
+
+        <ContainerSub >
+        <Link to="/funzone">
+        {/* <Image src="https://media.istockphoto.com/photos/posters-in-cozy-apartment-interior-picture-id943910360" /> */}
+        <Info> 
+       
+        <Title  >Funzone</Title>
+     
+        </Info>
+        </Link>
+      </ContainerSub>
+
+       
      
       </Container>
+
+      
   );
 };
 
