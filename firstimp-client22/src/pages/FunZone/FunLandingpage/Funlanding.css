@@ -7,6 +7,7 @@
 }
 .bgr{
     position:absolute;
+    
     margin-top: 2rem;
     height: 80vh;
 }
@@ -38,7 +39,7 @@ text-align: center;
   
 /* background-color: #6e72fc;
 background-image: linear-gradient(315deg, #6e72fc 0%, #ad1deb 74%); */
-background-color: black;
+background: url('https://i.postimg.cc/FRvQXF4Y/funzone-background.png');
     width: 100%;
     height:100vh;
     
