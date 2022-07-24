@@ -57,6 +57,8 @@ const ProductCard = ({ product }) => {
         <div className="text-center pt-1 pb-3">No Rating Yet.</div>
       )} */}
       <Card
+
+      style={{boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",borderRadius:"7px",marginTop:"18px"}}
         cover={
           <img
             src={images && images.length > 0 ? images[0].url : laptop}
@@ -65,7 +67,7 @@ const ProductCard = ({ product }) => {
           />
         }
         actions={[
-          <Link to={`/product/${slug}`}>
+          <Link to={`/product/${slug}`} style={{}}>
             <EyeOutlined className="text-primary" /> <br /> View Product
           </Link>,
           <>

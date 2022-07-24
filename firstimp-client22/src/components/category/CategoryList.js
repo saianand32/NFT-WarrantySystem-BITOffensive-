@@ -97,6 +97,7 @@ const CategoryList = () => {
   const showCategories = () =>
     categories.map((c) => (
       <ContainerSub key={c._id}>
+        {/* <Link to={`category/${c.slug}`}> */}
         <Link to={`category/${c.slug}`}>
         {/* <Image src="https://media.istockphoto.com/photos/posters-in-cozy-apartment-interior-picture-id943910360" /> */}
         <Info> 
@@ -117,7 +118,7 @@ const CategoryList = () => {
       
     ));
   return (
-    <Container style={{zIndex:1500}}>
+    <Container style={{zIndex:"100"}}>
       
         {loading ? <Spin className="text-center" /> : showCategories()}
 

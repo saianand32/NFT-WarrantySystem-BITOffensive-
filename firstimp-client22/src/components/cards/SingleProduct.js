@@ -81,6 +81,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
           </Carousel>
         ) : (
           <Card
+          style={{boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",borderRadius:"8px"}}
             cover={
               <img
                 src={images && images.length > 0 ? images[0].url : laptop}
@@ -91,7 +92,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
           />
         )}
 
-        <Tabs type="card">
+        <Tabs type="card"  style={{boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",borderRadius:"8px"}} >
          
           <TabPane tab="Specification" key="1">
            <div className="specification">
@@ -123,6 +124,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
         )}
 
         <Card
+        style={{boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",borderRadius:"5px"}}
           actions={[
             <Tooltip title={tooltip}>
               <a onClick={() => handleAddToCart()}>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Funlandingpage() {
   return (
-    <div className="funLanding" >
+    <div className="funLanding" style={{height:"90vh"}}>
 
 
         <div style={{zIndex:"-12"}} className="bgr">

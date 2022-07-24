@@ -93,7 +93,7 @@ const App = () => {
       </div>
     }>
       <Header />
-      <CategoryList/>
+      {/* <CategoryList/> */}
       <ToastContainer style={{zIndex:"1500"}}/>
       {/* <SideDrawer /> */}
       <Switch>

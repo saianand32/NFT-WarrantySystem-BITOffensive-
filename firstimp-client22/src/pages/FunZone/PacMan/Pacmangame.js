@@ -20,7 +20,7 @@ function Pacmangame() {
      }
   
     return (
-      <div   >
+      <div  style={{height:"90vh"}} >
       {/* <div class="bg-animation">
          <div id="stars"></div>
          <div id="stars2"></div>
