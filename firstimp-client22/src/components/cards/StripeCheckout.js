@@ -14,7 +14,11 @@ import { createOrder, emptyUserCart } from "../../functions/user";
 
 
 const StripeCheckout = () => {
+<<<<<<< HEAD
   const { user, coupon, pageState,shippingAdd, wallet } = useSelector((state) => ({ ...state }));
+=======
+  const { user, coupon, pageState,shippingAdd } = useSelector((state) => ({ ...state }));
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -115,10 +119,15 @@ const StripeCheckout = () => {
 //   };
 const order = {
   shippingAdd,
+<<<<<<< HEAD
   wallet
   
 };
 console.log(wallet)
+=======
+  
+};
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
 
 
 const handleSubmit = async (e) => {

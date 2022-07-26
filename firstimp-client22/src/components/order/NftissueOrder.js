@@ -16,16 +16,22 @@ const statusOptions = [
 ];
 
 const NftIssueOrders = ({ orders, handleStatusChange }) => {
+<<<<<<< HEAD
 
 
 
 
   
+=======
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
   const [option, setOptions] = useState("Not Processed");
   console.log(orders);
 
   const showOrderInTable = (order) => (
+<<<<<<< HEAD
     
+=======
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
     <table className="table table-bordered">
       <thead className="thead-light">
         <tr>
@@ -39,7 +45,11 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
           <th scope="col">Shipping</th>
         </tr>
       </thead>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
       <tbody>
         {order.products.map((p, i) => (
           <tr key={i}>
@@ -53,7 +63,10 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
             <td>{p.product.price}</td>
             <td>{p.product.brand}</td>
             <td>{p.product.warrantyMonths + "-months"}</td>
+<<<<<<< HEAD
             {/* <td>{p.product + "-months"}</td> */}
+=======
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
             {/* <td>{p.product.color}</td> */}
             <td>{p.count}</td>
 
@@ -66,6 +79,7 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
             </td>
           </tr>
         ))}
+<<<<<<< HEAD
      
 
        
@@ -96,12 +110,28 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
   //     Download Invoice
   //   </PDFDownloadLink>
   // );
+=======
+      </tbody>
+    </table>
+  );
+
+  const showDowloadLink = (order) => (
+    <PDFDownloadLink
+      document={<Invoice order={order} />}
+      fileName="invoice.pdf"
+      className="btn btn-sm btn-outline-primary"
+    >
+      Download Invoice
+    </PDFDownloadLink>
+  );
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
 
   const showEachOrders = () =>
     orders.map((order, i) => (
       <div key={order._id}>
         <div className="m-5 p-3 card">
           {/* <ShowPaymentInfo order={order} /> */}
+<<<<<<< HEAD
 {console.log(order.paymentIntent.wallet.walletAdd)}  
           
           {showOrderInTable(order)}
@@ -111,6 +141,14 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
             <div className="col">
               
               <div className="text-left"> </div>
+=======
+
+          
+          {showOrderInTable(order)}
+          <div className="row">
+            <div className="col">
+              <div className="text-left">{showDowloadLink(order)}</div>
+>>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
               <div className="text-right">
                
               </div>
