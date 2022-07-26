@@ -187,8 +187,8 @@ const initialState = {
   repeatlength:"",
   rollLength:"",
   serialNumber:"",
-    productId:"",
-    warrantyMonths:""
+  productId:"",
+  warrantyMonths:""
 
 
 };

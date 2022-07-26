@@ -20,3 +20,6 @@
     object-fit: cover;
     padding-bottom:10px;
 }
+:root::-webkit-scrollbar {
+    display: none;
+  }
