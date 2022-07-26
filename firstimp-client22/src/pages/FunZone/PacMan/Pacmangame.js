@@ -12,8 +12,7 @@ function Pacmangame() {
     );
   
     const start = () => {
-      audio.play();
-    
+      audio.play();    
     };
     const refreshPage = ()=>{
         window.location.reload();
