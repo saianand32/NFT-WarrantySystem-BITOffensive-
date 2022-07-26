@@ -13,18 +13,12 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-<<<<<<< HEAD
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
     "antd": "^4.14.1",
     "axios": "^0.21.1",
     "country-state-city": "^3.0.1",
     "ethers": "^5.6.9",
-=======
-    "antd": "^4.14.1",
-    "axios": "^0.21.1",
-    "country-state-city": "^3.0.1",
->>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
     "firebase": "^8.3.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
@@ -52,12 +46,8 @@
     "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.3",
     "typewriter-effect": "^2.17.0",
-<<<<<<< HEAD
     "web-vitals": "^1.1.1",
     "web3": "^1.7.4"
-=======
-    "web-vitals": "^1.1.1"
->>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
   },
   "scripts": {
     "start": "react-scripts start",
