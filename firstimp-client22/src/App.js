@@ -15,6 +15,7 @@ import CategoryList from "./components/category/CategoryList";
 import Funlandingpage from "./pages/FunZone/FunLandingpage/Funlandingpage";
 import Pacmangame from "./pages/FunZone/PacMan/Pacmangame";
 import Spacevaders from "./pages/FunZone/Spacevaders/Spacevaders";
+import SaveShip from "./pages/FunZone/FunLandingpage/SaveShip/SaveShip";
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
@@ -140,6 +141,7 @@ const App = () => {
       <Route exact path="/funzone" component={Funlandingpage} />
       <Route exact path="/pacman" component={Pacmangame} />
       <Route exact path="/vaders" component={Spacevaders} />
+      <Route exact path="/saveship" component={SaveShip} />
       <Footer />
     </Suspense>
   );

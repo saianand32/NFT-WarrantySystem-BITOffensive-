@@ -56,7 +56,9 @@ function Funlandingpage() {
   </div>
  
 </div>
+<Link to = "/saveship">
 <button className='btnn' style={{width:"150px",height:"60px",marginLeft:"80px"}}>Play</button>
+</Link>
 </div>
 
 

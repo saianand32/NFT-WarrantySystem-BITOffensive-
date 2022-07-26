@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Funlandingpage from "../../pages/FunZone/FunLandingpage/Funlandingpage";
 
 const Container = styled.div`
-  height: 15vh;
-  margin-top:20px;
+  height: 100px;
+  width:100vw;
+  margin-top:2px;
   // background-color: teal;
-  background-color:  white;
+  // background-image:url("https://i.postimg.cc/BbDxZym7/banner.png");
+  // background-color:  white;
   color: white;
   display: block;
   align-items: center;
@@ -15,9 +19,12 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container style={{textAlign:"center"}}>
-    <div>
-    <h4  >Use Coupon First50 to get upto 50% off on First order !!!</h4>
+  return <Container style={{display:"flex",justifyContent:"center" ,width:"100vw",zIndex:"10000"}}>
+    <div style={{width:"100vw"}}>
+      <Link to = "/funzone">
+      <img src="https://i.postimg.cc/BbDxZym7/banner.png" alt="#" style={{width:"100vw",height:"100px"}} />
+      </Link>
+      {/* <h1>hello</h1> */}
     </div>
 
     {/* <div>

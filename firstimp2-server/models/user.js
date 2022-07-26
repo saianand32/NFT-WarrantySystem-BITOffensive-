@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "subscriber",
     },
+    spacecoins: {
+      type: Number,
+      default: 5,
+    },
     cart: {
       type: Array,
       default: [],

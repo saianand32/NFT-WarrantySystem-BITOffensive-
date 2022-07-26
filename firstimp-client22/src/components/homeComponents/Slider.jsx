@@ -8,7 +8,7 @@ const Container = styled.div`
     width:100%;
     height:50vh;
     display:flex;
-    margin-top:10px;
+    // margin-top:10px;
     overflow: hidden;
     position: relative;
     ${mobile({ height:"40vh" })}
@@ -107,7 +107,7 @@ const Slider = () => {
  
  console.log(slideIndex);
     return (
-       <Container>
+       <Container style={{marginTop:"-52px"}}>
            <Arrow direction="left" onClick={()=> handleClick("left")}>
                <ArrowLeftOutlined />
            </Arrow>
