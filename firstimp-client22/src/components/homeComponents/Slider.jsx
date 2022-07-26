@@ -107,7 +107,7 @@ const Slider = () => {
  
  console.log(slideIndex);
     return (
-       <Container style={{marginTop:"-52px"}}>
+       <Container style={{zIndex:"-10",marginTop:"-52px"}} >
            <Arrow direction="left" onClick={()=> handleClick("left")}>
                <ArrowLeftOutlined />
            </Arrow>
