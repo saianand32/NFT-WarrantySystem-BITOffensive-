@@ -6,94 +6,22 @@ import {
   saveUserAddress,
   applyDiscount,
 } from "../functions/user";
+
 import { Button, Card, Input } from "antd";
 import { toast } from "react-toastify";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { ethers } from "ethers";
 
+import axios from "axios";
 
 const Checkout = ({ history }) => {
-  const { user, pageState, shippingAdd } = useSelector((state) => ({
+  const { user, pageState, shippingAdd, cart } = useSelector((state) => ({
     ...state,
   }));
   const dispatch = useDispatch();
 
-
-//jscj
-
-const [walletAddress, setWalletAddress] = useState("");
-
-// Button handler button for handling a
-// request event for metamask
-const btnhandler = () => {
-
-  // Asking if metamask is already present or not
-  if (window.ethereum) {
-
-    // res[0] for fetching a first wallet
-    window.ethereum
-      .request({ method: "eth_requestAccounts" })
-      .then((res) => setWalletAddress(res[0]));
-  } else {
-    alert("install metamask extension!!");
-  }
-console.log(walletAddress);
- 
-};
-
-const  wall= ()=>{
-  dispatch({
-    type: "WALLET_ADDRESS",
-    payload:{
-      walletAdd:walletAddress,
-      name:user.name,
-      email:user.email,
-
-    }
-
-  });
-
-}
-
-// getbalance function for getting a balance in
-// a right format with help of ethers
-// const getbalance = (address) => {
-
-//   // Requesting balance method
-//   window.ethereum
-//     .request({ 
-//       method: "eth_getBalance", 
-//       params: [address, "latest"] 
-//     })
-//     .then((balance) => {
-//       // Setting balance
-//       setdata({
-//         Balance: ethers.utils.formatEther(balance),
-//       });
-//     });
-// };
-
-// Function for getting handling all events
-// const accountChangeHandler = (account) => {
-//   // Setting an address data
-//   setdata({
-//     address: account,
-//   });
-
-//   // Setting a balance
-//   getbalance(account);
-//   dispatch({
-//     type: "WALLET_ADDRESS",
-//     payload: data.address,
-//   });
-// };
-
-
-//clmlad
-
-
-  // const { connect, disconnect, isActive, account, shouldDisable } = useMetaMask()
+  const [walletAddress, setWalletAddress] = useState("");
 
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -107,14 +35,152 @@ const  wall= ()=>{
   const [discountPrice, setDiscountPrice] = useState("");
   const [discountErr, setDiscountErr] = useState("");
   const [show, setShow] = useState(false);
+  const [ipfsHash, setIpfsHash] = useState("");
+
+  console.log(cart[0].count);
+  // const {}
+  var date = new Date();
+  var data = {
+    image:
+      "https://ipfs.io/ipfs/QmbSjaM3gJVfG4BuyTsU5hpFhLD9n24Y7mjZvQVztRH1GX",
+    description: "Warranty nft",
+    properties: [
+      {
+        type: "productName",
+        value: cart[0].title,
+      },
+      {
+        type: "productID",
+        value: cart[0].productId,
+      },
+      {
+        type: "productSerialNo",
+        value: cart[0].serialNumber,
+      },
+      {
+        type: "Warranty Expiry",
+        value: cart[0].warrantyMonths,
+      },
+      {
+        type: "purchase date",
+        value: date,
+      },
+    ],
+  };
+
+  const sendFileToIPFS = async (e) => {
+    try {
+      var config = {
+        method: "post",
+        url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmMTdjODcyNS03OTAxLTQ5NTUtOGRkZi1hNzJlMzM5NzA3NzIiLCJlbWFpbCI6Imt1bWFybml0aXNoNzg3MDM4QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI0MTE5ZGQ0ODNhZGIwYjI5MjQwNSIsInNjb3BlZEtleVNlY3JldCI6ImM3OGI4Y2Q4NmNiNTljZDQxMjFlMTdkMmU4MjVkY2FlNThlZDkyMmEzYzkzMDEyMTFkYjc5YjY0ZDQzZTFmNGUiLCJpYXQiOjE2NTg2OTcyNDN9.E0uFksg-A8W90gGFc3TjJnP7wJDEic-QkrEShDTlvkY",
+        },
+        data: data,
+      };
+      const res = await axios(config);
+      setIpfsHash(res.data.IpfsHash);
+      // NftUri = res.data.IpfsHash;
+      console.log(res.data);
+
+      //Take a look at your Pinata Pinned section, you will see a new file added to you list.
+    } catch (error) {
+      console.log("Error sending File to IPFS: ");
+      console.log(error);
+    }
+  };
+  console.log(ipfsHash);
+
+  // Button handler button for handling a
+  // request event for metamask
+
+  const btnhandler = async () => {
+    await sendFileToIPFS();
+    await wall();
+    // Asking if metamask is already present or not
+    if (window.ethereum) {
+      // res[0] for fetching a first wallet
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((res) => setWalletAddress(res[0]));
+    } else {
+      alert("install metamask extension!!");
+    }
+    console.log(walletAddress);
+  };
+
+  const wall = async () => {
+    dispatch({
+      type: "WALLET_ADDRESS",
+      payload: {
+        walletAdd: walletAddress,
+        name: user.name,
+        email: user.email,
+        ipfsHash: ipfsHash,
+      },
+    });
+  };
 
   useEffect(() => {
     getUserCart(user.token).then((res) => {
       console.log(res.data);
       setProducts(res.data.products);
+      console.log(res.data);
       setTotal(res.data.cartTotal);
     });
   }, []);
+
+  //
+  // var data = {
+  //   image:
+  //     "https://ipfs.io/ipfs/QmbSjaM3gJVfG4BuyTsU5hpFhLD9n24Y7mjZvQVztRH1GX",
+  //   description: "Warranty nft",
+  //   properties: [
+  //     {
+  //       type: "productName",
+  //       value: values.title,
+  //     },
+  //     {
+  //       type: "productID",
+  //       value: values.productId,
+  //     },
+  //     {
+  //       type: "productSerialNo",
+  //       value: values.serialNumber,
+  //     },
+  //     {
+  //       type: "Warranty Expiry",
+  //       value: values.warrantyMonths,
+  //     },
+  //   ],
+  // };
+
+  // const sendFileToIPFS = async (e) => {
+  //   try {
+  //     var config = {
+  //       method: "post",
+  //       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization:
+  //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmMTdjODcyNS03OTAxLTQ5NTUtOGRkZi1hNzJlMzM5NzA3NzIiLCJlbWFpbCI6Imt1bWFybml0aXNoNzg3MDM4QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI0MTE5ZGQ0ODNhZGIwYjI5MjQwNSIsInNjb3BlZEtleVNlY3JldCI6ImM3OGI4Y2Q4NmNiNTljZDQxMjFlMTdkMmU4MjVkY2FlNThlZDkyMmEzYzkzMDEyMTFkYjc5YjY0ZDQzZTFmNGUiLCJpYXQiOjE2NTg2OTcyNDN9.E0uFksg-A8W90gGFc3TjJnP7wJDEic-QkrEShDTlvkY",
+  //       },
+  //       data: data,
+  //     };
+  //     const res = await axios(config);
+  //     setIpfsHash(res.data.IpfsHash);
+  //     values.NftUri = res.data.IpfsHash;
+  //     console.log(res.data);
+  //     console.log("slndvk ncznk", values);
+  //     //Take a look at your Pinata Pinned section, you will see a new file added to you list.
+  //   } catch (error) {
+  //     console.log("Error sending File to IPFS: ");
+  //     console.log(error);
+  //   }
+  // };
+  // console.log(ipfsHash);
 
   //setting shipping adress in store
   let shippingaddd = {
@@ -132,7 +198,6 @@ const  wall= ()=>{
       type: "SHIPPING_ADDRESS",
       payload: shippingaddd,
     });
-
 
     setAddressSaved(true);
     toast.success("Address Saved Successully");
@@ -158,16 +223,6 @@ const  wall= ()=>{
       history.push("/shop");
     }, 5000);
   };
-
-  // const saveAddressToDb = () => {
-  //   saveUserAddress(user.token,  address).then((res) => {
-  //     if (res.data.ok) {
-
-  //       setAddressSaved(true);
-  //       toast.success("Address Saved Successully");
-  //     }
-  //   });
-  // };
 
   const applyDiscountCoupon = () => {
     applyDiscount({ coupon }, user.token).then((res) => {
@@ -226,33 +281,29 @@ const  wall= ()=>{
       <div className="col-md-6 p-5">
         <h4>Shipping Address</h4>
 
-
-
         <Button onClick={btnhandler} variant="primary">
-            Connect to wallet
-          </Button>
-          <Button onClick={wall} variant="primary">
-           dispatch
-          </Button>
-          
-          <div>
-            {/* {data.Balance} */}
-            {walletAddress}
-            
-          </div>
+          Connect to wallet
+        </Button>
+        <Button onClick={wall} variant="primary">
+          dispatch
+        </Button>
+
+        <div>
+          {/* {data.Balance} */}
+          {walletAddress}
+        </div>
         <div className="p-2 mt-2">
           <Input
             type="text"
             className=""
             value={name}
             onChange={(e) => setName(e.target.value)}
-            
             placeholder="Name"
             maxlength="30"
             required
           />
         </div>
-        
+
         <div className="p-2 mt-2">
           <Input
             type="Number"
@@ -274,7 +325,7 @@ const  wall= ()=>{
           />
         </div>
         <hr />
-        
+
         <h6>Special Instructions: </h6>
         <div className="p-2 mt-2 mb-2">
           <Input
@@ -289,7 +340,6 @@ const  wall= ()=>{
         </div>
         <hr />
 
-        {/* <ReactQuill placeholder="address" theme="snow" value={address} onChange={setAddress} /> */}
         <textarea
           cols="90"
           required
@@ -297,12 +347,7 @@ const  wall= ()=>{
           onChange={(e) => setAddress(e.target.value)}
         />
         {console.log(address)}
-        {/* <button
-          className="btn btn-secondary btn-raised mt-2 btn-block"
-          onClick={saveAddressToDb}
-        >
-          Save Delivery Address
-        </button> */}
+
         <button
           className="btn btn-secondary btn-raised mt-2 btn-block"
           onClick={handleShippingAdd}
@@ -386,7 +431,7 @@ const  wall= ()=>{
           <div className="col-md-6">
             <button
               className="btn btn-primary btn-raised btn-block ml-3"
-              disabled={!addressSaved || !products.length|| !walletAddress}
+              disabled={!addressSaved || !products.length || !walletAddress}
               onClick={handlePaymentSession}
             >
               Place Order

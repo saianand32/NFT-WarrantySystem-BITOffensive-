@@ -1,23 +1,10 @@
-import {
-  Facebook,
-  Instagram,
-  MailOutline,
-  Phone,
-  Pinterest,
-  Room,
-  Twitter,
-} from "@material-ui/icons";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
-import logo from "../assets/images/firstimp.png";
-import { Link } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
   background-color: #131921;
   margin-top: 50px;
-  // background-image: url("https://www.transparenttextures.com/patterns/black-linen-2.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   color: white;
   ${mobile({ flexDirection: "column" })}
 `;
@@ -64,7 +51,7 @@ const Center = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 30px;
-  color: #B3D146;
+  color: #b3d146;
   font-weight: bold;
 `;
 
@@ -79,7 +66,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
-  text-decoration:none;
+  text-decoration: none;
 `;
 
 const Right = styled.div`
@@ -99,59 +86,47 @@ const Payment = styled.img`
 
 const Footer = () => {
   return (
-    <Container>
-      <Left>
-        {/* <img src= {logo} alt="logo" /> */}
-        <Logo>first Impression</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
-        {/* <SocialContainer>
-            <SocialIcon color="3B5999">
-              <Facebook />
-            </SocialIcon>
-            <SocialIcon color="E4405F">
-              <Instagram />
-            </SocialIcon>
-            <SocialIcon color="55ACEE">
-              <Twitter />
-            </SocialIcon>
-            <SocialIcon color="E60023">
-              <Pinterest />
-            </SocialIcon>
-          </SocialContainer> */}
-      </Left>  
-      <Center>
-        <Title>Useful Links</Title>
-        <List >
-          <ListItem><Link to="/" >Home</Link></ListItem>
-          <ListItem><Link to="/cart">Cart</Link></ListItem>
-          <ListItem> <Link to="/user/history">Wallpapers</Link></ListItem>
-        
-          <ListItem> <Link to="/user/history">My Account</Link> </ListItem>
-          <ListItem> <Link to="/user/history">Tracking</Link> </ListItem>
-          <ListItem><Link to="/user/wishlist">Wishlist</Link></ListItem>
-          <ListItem> <Link to="/cart">Order</Link></ListItem>
-          <ListItem> <Link to="/">Terms</Link></ListItem>
-          <ListItem> <Link to="/contact">Contact</Link></ListItem>
-        </List>
-      </Center>
-      <Right>
-        <Title>Contact</Title>
-        <ContactItem>
-          <Room style={{ marginRight: "10px" }} /> BIToffensive_Store, Nitte Meenakshi Institute of Technology,Bangalore-560064
-        </ContactItem>
-        <ContactItem>
-          <Phone style={{ marginRight: "10px" }} /> +91-34-56782954, 91-34-56782957
-        </ContactItem>
-        <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> nitish@gmail.com,  utsav@gmail.com, saishwar@gmail.com
-        </ContactItem>
-        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-      </Right>
-    </Container>
+    // <Container>
+    //   <Left>
+
+    //     <Logo>first Impression</Logo>
+    //     <Desc>
+    //       There are many variations of passages of Lorem Ipsum available, but
+    //       the majority have suffered alteration in some form, by injected
+    //       humour, or randomised words which don’t look even slightly believable.
+    //     </Desc>
+
+    //   </Left>
+    //   <Center>
+    //     <Title>Useful Links</Title>
+    //     <List >
+    //       <ListItem><Link to="/" >Home</Link></ListItem>
+    //       <ListItem><Link to="/cart">Cart</Link></ListItem>
+    //       <ListItem> <Link to="/user/history">Wallpapers</Link></ListItem>
+
+    //       <ListItem> <Link to="/user/history">My Account</Link> </ListItem>
+    //       <ListItem> <Link to="/user/history">Tracking</Link> </ListItem>
+    //       <ListItem><Link to="/user/wishlist">Wishlist</Link></ListItem>
+    //       <ListItem> <Link to="/cart">Order</Link></ListItem>
+    //       <ListItem> <Link to="/">Terms</Link></ListItem>
+    //       <ListItem> <Link to="/contact">Contact</Link></ListItem>
+    //     </List>
+    //   </Center>
+    //   <Right>
+    //     <Title>Contact</Title>
+    //     <ContactItem>
+    //       <Room style={{ marginRight: "10px" }} /> BIToffensive_Store, Nitte Meenakshi Institute of Technology,Bangalore-560064
+    //     </ContactItem>
+    //     <ContactItem>
+    //       <Phone style={{ marginRight: "10px" }} /> +91-34-56782954, 91-34-56782957
+    //     </ContactItem>
+    //     <ContactItem>
+    //       <MailOutline style={{ marginRight: "10px" }} /> nitish@gmail.com,  utsav@gmail.com, saishwar@gmail.com
+    //     </ContactItem>
+    //     <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+    //   </Right>
+    // </Container>
+    <div>footer</div>
   );
 };
 

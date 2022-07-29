@@ -11,6 +11,8 @@ import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import LocalSearch from "../../../components/forms/LocalSearch";
 import FileUpload from "../../../components/forms/FileUpload";
 
+import axios from "axios";
+
 const initialState = {
   title: "",
   description: "",
@@ -21,7 +23,7 @@ const initialState = {
   shipping: "",
   quantity: "",
   images: [],
-  gst:"",
+  gst: "",
   colors: [
     "AliceBlue",
     "AntiqueWhite",
@@ -175,22 +177,20 @@ const initialState = {
   // brands: ["Apple", "Microsoft", "Samsung", "Lenovo", "ASUS"],
   color: "",
   brands: "",
-  material:"",
-  property:"",
-  design:"",
-  style:"",
-  application:"",
-  instruction:"",
-  width:"",
-  length:"",
-  weight:"",
-  repeatlength:"",
-  rollLength:"",
-  serialNumber:"",
-  productId:"",
-  warrantyMonths:""
-
-
+  material: "",
+  property: "",
+  design: "",
+  style: "",
+  application: "",
+  instruction: "",
+  width: "",
+  length: "",
+  weight: "",
+  repeatlength: "",
+  rollLength: "",
+  serialNumber: "",
+  productId: "",
+  warrantyMonths: "",
 };
 
 const ProductCreate = () => {
@@ -200,6 +200,11 @@ const ProductCreate = () => {
   const [loading, setLoading] = useState(false);
   const [subOptions, setSubOptions] = useState([]);
   const [showSub, setShowSub] = useState(false);
+
+
+
+  const val= values
+  console.log(val);
 
   useEffect(() => {
     loadCategories();
@@ -212,12 +217,12 @@ const ProductCreate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    createProduct(values, user.token)
+    createProduct(val, user.token)
       .then((res) => {
         console.log(res);
         setLoading(false);
         window.alert(`"${res.data.title}" is created`);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => {
         console.log(err.response);
@@ -226,6 +231,7 @@ const ProductCreate = () => {
         toast.error(err.response.data.err);
       });
   };
+  console.log(values);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -241,6 +247,54 @@ const ProductCreate = () => {
     setShowSub(true);
   };
 
+  // var data = {
+  //   image:
+  //     "https://ipfs.io/ipfs/QmbSjaM3gJVfG4BuyTsU5hpFhLD9n24Y7mjZvQVztRH1GX",
+  //   description: "Warranty nft",
+  //   properties: [
+  //     {
+  //       type: "productName",
+  //       value: values.title,
+  //     },
+  //     {
+  //       type: "productID",
+  //       value: values.productId,
+  //     },
+  //     {
+  //       type: "productSerialNo",
+  //       value: values.serialNumber,
+  //     },
+  //     {
+  //       type: "Warranty Expiry",
+  //       value: values.warrantyMonths,
+  //     },
+  //   ],
+  // };
+
+  // const sendFileToIPFS = async (e) => {
+  //   try {
+  //     var config = {
+  //       method: "post",
+  //       url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization:
+  //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmMTdjODcyNS03OTAxLTQ5NTUtOGRkZi1hNzJlMzM5NzA3NzIiLCJlbWFpbCI6Imt1bWFybml0aXNoNzg3MDM4QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI0MTE5ZGQ0ODNhZGIwYjI5MjQwNSIsInNjb3BlZEtleVNlY3JldCI6ImM3OGI4Y2Q4NmNiNTljZDQxMjFlMTdkMmU4MjVkY2FlNThlZDkyMmEzYzkzMDEyMTFkYjc5YjY0ZDQzZTFmNGUiLCJpYXQiOjE2NTg2OTcyNDN9.E0uFksg-A8W90gGFc3TjJnP7wJDEic-QkrEShDTlvkY",
+  //       },
+  //       data: data,
+  //     };
+  //     const res = await axios(config);
+  //     setIpfsHash(res.data.IpfsHash);
+  //     values.NftUri = res.data.IpfsHash;
+  //     console.log(res.data);
+  //     console.log("slndvk ncznk", values);
+  //     //Take a look at your Pinata Pinned section, you will see a new file added to you list.
+  //   } catch (error) {
+  //     console.log("Error sending File to IPFS: ");
+  //     console.log(error);
+  //   }
+  // };
+  // console.log(ipfsHash);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -267,6 +321,7 @@ const ProductCreate = () => {
             subOptions={subOptions}
             showSub={showSub}
             setValues={setValues}
+            
           />
         </div>
       </div>

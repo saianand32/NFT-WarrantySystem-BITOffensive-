@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Search from "../forms/Search";
 import "./nav.css";
-import logo from "../assets/images/firstimp.png"
+
 
 const { SubMenu, Item } = Menu;
 

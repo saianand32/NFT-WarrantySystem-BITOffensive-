@@ -252,6 +252,9 @@ const productSchema = new mongoose.Schema(
     warrantyMonths: {
       type: Number,
     },
+    NftUri: {
+      type: String,
+    },
     ratings: [
       {
         star: Number,

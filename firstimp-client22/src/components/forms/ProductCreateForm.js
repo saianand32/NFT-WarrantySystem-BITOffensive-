@@ -11,6 +11,7 @@ const ProductCreateForm = ({
   subOptions,
   showSub,
   setValues,
+  sendFileToIPFS,
 }) => {
   const {
     title,
@@ -50,11 +51,11 @@ const ProductCreateForm = ({
     delivery,
     serialNumber,
     productId,
-    warrantyMonths
-    
+    warrantyMonths,
   } = values;
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Name</label>
@@ -76,8 +77,8 @@ const ProductCreateForm = ({
           value={productId}
           onChange={handleChange}
         />
-     </div>
-     <div className="form-group">
+      </div>
+      <div className="form-group">
         <label>Serial No</label>
 
         <input
@@ -87,7 +88,7 @@ const ProductCreateForm = ({
           value={serialNumber}
           onChange={handleChange}
         />
-     </div>
+      </div>
 
       <div className="form-group">
         <label>Description</label>
@@ -121,7 +122,7 @@ const ProductCreateForm = ({
           value={warrantyMonths}
           onChange={handleChange}
         />
-     </div>
+      </div>
       <div className="form-group">
         <label>Material</label>
 
@@ -221,7 +222,7 @@ const ProductCreateForm = ({
           onChange={handleChange}
         />
       </div>
-     
+
       <div className="form-group">
         <label>Price</label>
 
@@ -233,7 +234,7 @@ const ProductCreateForm = ({
           onChange={handleChange}
         />
       </div>
-      
+
       <div className="form-group">
         <label>GST (%)</label>
 
@@ -258,8 +259,6 @@ const ProductCreateForm = ({
         </select>
       </div>
 
-  
-
       <div className="form-group">
         <label>Quantity</label>
 
@@ -269,10 +268,10 @@ const ProductCreateForm = ({
           className="form-control"
           value={quantity}
           onChange={handleChange}
-          min="1" 
+          min="1"
           max="1"
         />
-     </div>
+      </div>
       <div className="form-group">
         <label>Color</label>
         <select name="color" className="form-control" onChange={handleChange}>
@@ -335,6 +334,8 @@ const ProductCreateForm = ({
       <br />
       <button className="btn btn-outline-info">Save</button>
     </form>
+    <button onClick={sendFileToIPFS}> Upload to ipfs</button>
+    </div>
   );
 };
 

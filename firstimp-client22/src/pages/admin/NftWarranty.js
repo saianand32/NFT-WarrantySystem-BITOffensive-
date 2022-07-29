@@ -4,81 +4,119 @@ import { getOrders, updateOrderStatus } from "../../functions/admin";
 import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import NftIssueOrders from "../../components/order/NftissueOrder";
-import axios from "axios";
+import Web3 from "web3";
+
+import { abi } from "../../abi";
+
+
+// const provider = new Web3.providers.HttpProvider(
+//   'https://rinkeby.infura.io/v3/3ed112ee6c4d42a09e485ddb5eec5fa2'
+// );
+
+const AddressArray=  [];
+
+const ipfsArray=[];
+
+
+const rpcURL = "https://rinkeby.infura.io/v3/c7947df1c5c54702851df8b415d9f873";
+const web3 = new Web3(Web3.givenProvider || rpcURL);
+const contractAddress = "0x2d72f881dEdeBC461BCd97b1f299F6bb92f4b4e4";
+const contract = new web3.eth.Contract(abi, contractAddress);
 
 const Nftwarranty = () => {
+
+
+
+  const fetchNFTs = async () => {
+   
+    const signedMessage = await web3.eth.sign(web3.utils.sha3('Hello world'), "0x3aEFd9DA1dCC077d24E4b5612AeF634766F82B17")
+    let signer = await web3.eth.personal.ecRecover("hello world", signedMessage);
+  
+    console.log( signer);
+  }
+
+
+
   const [orders, setOrders] = useState([]);
   const { user } = useSelector((state) => ({ ...state }));
-const ress=1;
 
+  const [walletAddress, setWalletAddress] = useState("");
 
+  const btnhandler = () => {
+    if (window.ethereum) {
+      // res[0] for fetching a first wallet
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((res) => setWalletAddress(res[0]));
+    } else {
+      alert("install metamask extension!!");
+    }
+    console.log(walletAddress);
+  };
+console.log(orders)
+  for(let i=0; i<orders.length; i++){
+    AddressArray[i]=orders[i].paymentIntent.wallet.walletAdd
+    ipfsArray[i]=orders[i].paymentIntent.wallet.ipfsHash
+  }
+console.log(AddressArray,ipfsArray)
+  //const addArr=[];
+  //addArr.push(orders.add)
 
+  // const Baseuri = `ipfs://${ipfsArray[0]}`;
+  // console.log(Baseuri)
+  let i=0
+  const getNftmint = async () => {
+    
+    try {
+      
+      console.log(walletAddress);
+      let balance = await web3.eth.getBalance(walletAddress);
+      console.log(balance);
+
+      console.log(contract);
+
+      const test = await contract.methods
+        .safeMint(AddressArray[0], `ipfs://${ipfsArray[0]}`)
+        .send({ from: walletAddress })
+        .on("receipt", function (receipt) {
+          alert("Mint done");
+        });
+      console.log(test);
+    } catch (err) {
+      console.log(err);
+    }
+    ++i;
+  };
+
+  
+  
   useEffect(() => {
     loadOrders();
   }, []);
 
   const loadOrders = () =>
     getOrders(user.token).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setOrders(res.data);
+      // 
     });
 
   const handleStatusChange = (orderId, orderStatus) => {
     updateOrderStatus(user.token, orderId, orderStatus).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       toast.success("Status Updated");
       loadOrders();
     });
   };
+// const estg =async()=>{
+//  await web3.eth.getGasPrice().then((result) => {
+//     console.log(web3.utils.fromWei(result, 'ether'))
+//     console.log(result)
+//     })
 
-  var data = JSON.stringify({
-    pinataOptions: {
-      cidVersion: 1,
-    },
-    pinataMetadata: {
-      name: `hello`,
-      keyvalues: {
-        customKey: "customValue",
-        customKey2: "customValue2",
-      },
-    },
-    pinataContent: {
-      productName: "somevalue",
-      productSerialNo:"",
-      productID:"",
-      purchaseDate:"",
-      WarrantyExp:"",
-      // walletAdd:orders.paymentIntent.wallet.walletAdd,
-
-
-    },
-  });
-  console.log(orders)
-
-  const sendFileToIPFS = async (e) => {
-    try {
-      var config = {
-        method: "post",
-        url: "https://api.pinata.cloud/pinning/pinJSONToIPFS",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJmMTdjODcyNS03OTAxLTQ5NTUtOGRkZi1hNzJlMzM5NzA3NzIiLCJlbWFpbCI6Imt1bWFybml0aXNoNzg3MDM4QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImlkIjoiRlJBMSIsImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxfV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiI0MTE5ZGQ0ODNhZGIwYjI5MjQwNSIsInNjb3BlZEtleVNlY3JldCI6ImM3OGI4Y2Q4NmNiNTljZDQxMjFlMTdkMmU4MjVkY2FlNThlZDkyMmEzYzkzMDEyMTFkYjc5YjY0ZDQzZTFmNGUiLCJpYXQiOjE2NTg2OTcyNDN9.E0uFksg-A8W90gGFc3TjJnP7wJDEic-QkrEShDTlvkY",
-        },
-        data: data,
-      };
-      const res = await axios(config);
-
-      console.log(res.data);
-      //Take a look at your Pinata Pinned section, you will see a new file added to you list.
-    } catch (error) {
-      console.log("Error sending File to IPFS: ");
-      console.log(error);
-    }
-  };
-
+// }
   return (
     <div className="container-fluid">
-     <button onClick={sendFileToIPFS}> hello</button>
       <div className="row">
         <div className="col-md-2">
           <AdminNav />
@@ -92,6 +130,10 @@ const ress=1;
           />
         </div>
       </div>
+      <button onClick={btnhandler}> Wallet connect</button>
+      <button onClick={getNftmint}>contract call</button>
+      <button onClick={fetchNFTs}>estemate gas price</button>
+      
     </div>
   );
 };

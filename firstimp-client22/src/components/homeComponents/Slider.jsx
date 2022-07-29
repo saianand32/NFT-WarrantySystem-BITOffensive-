@@ -107,11 +107,7 @@ const Slider = () => {
  
  console.log(slideIndex);
     return (
-<<<<<<< HEAD
-       <Container style={{zIndex:"-10",marginTop:"-52px"}} >
-=======
        <Container style={{zIndex:"0",marginTop:"-52px"}} >
->>>>>>> 8443316689e8b4d70f79a5bd93f6226c21611028
            <Arrow direction="left" onClick={()=> handleClick("left")}>
                <ArrowLeftOutlined />
            </Arrow>

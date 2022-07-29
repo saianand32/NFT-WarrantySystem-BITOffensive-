@@ -16,6 +16,7 @@ import Funlandingpage from "./pages/FunZone/FunLandingpage/Funlandingpage";
 import Pacmangame from "./pages/FunZone/PacMan/Pacmangame";
 import Spacevaders from "./pages/FunZone/Spacevaders/Spacevaders";
 import SaveShip from "./pages/FunZone/FunLandingpage/SaveShip/SaveShip";
+import Nftownership from "./pages/Nftownership";
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
@@ -102,6 +103,7 @@ const App = () => {
         <UserRoute exact path="/user/password" component={Password} />
         <UserRoute exact path="/user/wishlist" component={Wishlist} />
         <UserRoute exact path="/checkout" component={Checkout} />
+        <UserRoute exact path="/Nftownership" component={Nftownership} />
         <UserRoute exact path="/payment" component={Payment} />
         <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
         <AdminRoute exact path="/admin/category" component={CategoryCreate} />
