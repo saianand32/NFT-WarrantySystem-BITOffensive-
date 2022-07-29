@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import NftIssueOrders from "../../components/order/NftissueOrder";
 import Web3 from "web3";
 
-import { abi } from "../../abi";
+import { abi } from "../../contract/abi";
 
 
 // const provider = new Web3.providers.HttpProvider(

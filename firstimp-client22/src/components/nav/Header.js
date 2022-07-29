@@ -16,6 +16,7 @@ import { useHistory } from "react-router-dom";
 import Search from "../forms/Search";
 import "./nav.css";
 
+import WalletConnect from "../../Hooks/WalletConnect";
 
 const { SubMenu, Item } = Menu;
 
@@ -40,42 +41,63 @@ const Header = () => {
     });
     history.push("/login");
   };
-  
+
   return (
-    <Menu onClick={handleClick} mode="horizontal" id="navMenu" style={{background:"#131921",height:"50px",zIndex:'1500'}}>
-      
-          <Item  className="nav_logo_container">
+    <Menu
+      onClick={handleClick}
+      mode="horizontal"
+      id="navMenu"
+      style={{ background: "#131921", height: "50px", zIndex: "1500" }}
+    >
+      <Item className="nav_logo_container">
         <div className="nav_logo_container">
           {/* <img className="logo_img" src={logo} alt="logo" /> */}
-         <div className="nav_logo">BIToffensive_Store</div>
+          <div className="nav_logo">BIToffensive_Store</div>
         </div>
       </Item>
-        <Item key="home" icon={<AppstoreOutlined style={{color:"#b3d146"}} />}>
-        <Link to="/" id = "navLinkText">Home</Link>
+      <Item key="home" icon={<AppstoreOutlined style={{ color: "#b3d146" }} />}>
+        <Link to="/" id="navLinkText">
+          Home
+        </Link>
       </Item>
-        <Item key="shop" icon={<ShopOutlined style={{color:"#b3d146"}}/>}>
-        <Link to="/shop" id = "navLinkText">Shop</Link>
+      <Item key="shop" icon={<ShopOutlined style={{ color: "#b3d146" }} />}>
+        <Link to="/shop" id="navLinkText">
+          Shop
+        </Link>
       </Item>
-        <Item key="cart" icon={<ShoppingCartOutlined style={{color:"#b3d146"}}/>}>
+      <Item
+        key="cart"
+        icon={<ShoppingCartOutlined style={{ color: "#b3d146" }} />}
+      >
         <Link to="/cart">
-          <Badge count={cart.length} offset="9 0" id = "navLinkText">
+          <Badge count={cart.length} offset="9 0" id="navLinkText">
             cart
           </Badge>
         </Link>
       </Item>
-  
-
-     
 
       {!user && (
-        <Item key="register" icon={<UserAddOutlined style={{color:"#b3d146"}} />} className="float-right">
-          <Link to="/register" id = "navLinkText">Register</Link>
+        <Item
+          key="register"
+          icon={<UserAddOutlined style={{ color: "#b3d146" }} />}
+          className="float-right"
+        >
+          <Link to="/register" id="navLinkText">
+            Register
+          </Link>
         </Item>
       )}
+      
 
       {!user && (
-        <Item key="login" icon={<UserOutlined style={{color:"#b3d146"}}/>} className="float-right">
-          <Link to="/login" id = "navLinkText">Login</Link>
+        <Item
+          key="login"
+          icon={<UserOutlined style={{ color: "#b3d146" }} />}
+          className="float-right"
+        >
+          <Link to="/login" id="navLinkText">
+            Login
+          </Link>
         </Item>
       )}
 
@@ -84,11 +106,11 @@ const Header = () => {
           icon={<SettingOutlined />}
           title={user.email && user.email.split("@")[0]}
           className="float-right"
-          style={{color:"#b3d146"}}
+          style={{ color: "#b3d146" }}
         >
           {user && user.role === "subscriber" && (
             <Item>
-              <Link to="/user/history" >Dashboard</Link>
+              <Link to="/user/history">Dashboard</Link>
             </Item>
           )}
 
@@ -101,12 +123,19 @@ const Header = () => {
           <Item icon={<LogoutOutlined />} onClick={logout}>
             Logout
           </Item>
+
+          <div>
+            {" "}
+           
+          </div>
         </SubMenu>
       )}
 
       <span className="float-right pr-2">
         <Search />
       </span>
+
+      <WalletConnect />
     </Menu>
   );
 };

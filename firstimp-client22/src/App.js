@@ -5,9 +5,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { currentUser } from "./functions/auth";
-import {LoadingOutlined} from "@ant-design/icons";
+import { LoadingOutlined } from "@ant-design/icons";
 import Announcement from "./components/homeComponents/Announcement";
-import Footer from "./components/footer/Footer"
+import Footer from "./components/footer/Footer";
 import Contact from "./pages/Contact";
 import SliderImageAdd from "./pages/admin/SliderImageAdd";
 import { Category } from "@material-ui/icons";
@@ -17,6 +17,25 @@ import Pacmangame from "./pages/FunZone/PacMan/Pacmangame";
 import Spacevaders from "./pages/FunZone/Spacevaders/Spacevaders";
 import SaveShip from "./pages/FunZone/FunLandingpage/SaveShip/SaveShip";
 import Nftownership from "./pages/Nftownership";
+//wagmi import
+import {
+  WagmiConfig,
+  createClient,
+  configureChains,
+  defaultChains,
+} from 'wagmi'
+import { publicProvider } from 'wagmi/providers/public'
+import Profile from "./Hooks/WalletConnect";
+
+const { provider, webSocketProvider } = configureChains(defaultChains, [
+  publicProvider(),
+])
+
+const client = createClient({
+  autoConnect: true,
+  provider,
+  webSocketProvider,
+})
 
 const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
@@ -37,9 +56,7 @@ const CategoryCreate = lazy(() =>
 const CategoryUpdate = lazy(() =>
   import("./pages/admin/category/CategoryUpdate")
 );
-const Nftwarranty = lazy(() =>
-  import("./pages/admin/NftWarranty")
-);
+const Nftwarranty = lazy(() => import("./pages/admin/NftWarranty"));
 const SubCreate = lazy(() => import("./pages/admin/sub/SubCreate"));
 const SubUpdate = lazy(() => import("./pages/admin/sub/SubUpdate"));
 
@@ -55,8 +72,6 @@ const SideDrawer = lazy(() => import("./components/drawer/SideDrawer"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const CreateCoupon = lazy(() => import("./pages/admin/coupon/CreateCoupon"));
 const Payment = lazy(() => import("./pages/Payment"));
-
-
 
 const App = () => {
   const dispatch = useDispatch();
@@ -89,63 +104,69 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Suspense fallback={
-      <div className="col text-center p-5 text-primary">
-       <LoadingOutlined className="h4 p-3 text-danger" /> BIToffensive_Store
-      </div>
-    }>
-      <Header />
-      {/* <CategoryList/> */}
-      <ToastContainer style={{zIndex:"1500"}}/>
-      {/* <SideDrawer /> */}
-      <Switch>
-        <UserRoute exact path="/user/history" component={History} />
-        <UserRoute exact path="/user/password" component={Password} />
-        <UserRoute exact path="/user/wishlist" component={Wishlist} />
-        <UserRoute exact path="/checkout" component={Checkout} />
-        <UserRoute exact path="/Nftownership" component={Nftownership} />
-        <UserRoute exact path="/payment" component={Payment} />
-        <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
-        <AdminRoute exact path="/admin/category" component={CategoryCreate} />
-        <AdminRoute
-          exact
-          path="/admin/category/:slug"
-          component={CategoryUpdate}
-        />
-        <AdminRoute exact path="/admin/sub" component={SubCreate} />
-        <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
-        <AdminRoute exact path="/admin/product" component={ProductCreate} />
-        <AdminRoute exact path="/admin/products" component={AllProducts} />
-        <AdminRoute exact path="/admin/sliderimageupload" component={SliderImageAdd} />
-        <AdminRoute exact path="/admin/nftwarranty" component={Nftwarranty} />
+    <WagmiConfig client={client}>
+      <Suspense
+        fallback={
+          <div className="col text-center p-5 text-primary">
+            <LoadingOutlined className="h4 p-3 text-danger" /> BIToffensive_Store
+          </div>
+        }
+      >
+        <Header />
+        {/* <CategoryList/> */}
+        <ToastContainer style={{ zIndex: "1500" }} />
+        {/* <SideDrawer /> */}
+        <Switch>
+          <UserRoute exact path="/user/history" component={History} />
+          <UserRoute exact path="/user/history1" component={Profile} />
 
-        <AdminRoute
-          exact
-          path="/admin/product/:slug"
-          component={ProductUpdate}
-        />
-        <AdminRoute exact path="/admin/coupon" component={CreateCoupon} />
-        <Route exact path="/product/:slug" component={Product} />
-        <Route exact path="/category/:slug" component={CategoryHome} />
-        <Route exact path="/sub/:slug" component={SubHome} />
-        <Route exact path="/shop" component={Shop} />
-        <Route exact path="/cart" component={Cart} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/register/complete" component={RegisterComplete} />
-        <Route exact path="/forgot/password" component={ForgotPassword} />
-        
-        
-       
-      </Switch>
-      <Route exact path="/contact" component={Contact} />
-      <Route exact path="/funzone" component={Funlandingpage} />
-      <Route exact path="/pacman" component={Pacmangame} />
-      <Route exact path="/vaders" component={Spacevaders} />
-      <Route exact path="/saveship" component={SaveShip} />
-      <Footer />
-    </Suspense>
+          <UserRoute exact path="/user/password" component={Password} />
+          <UserRoute exact path="/user/wishlist" component={Wishlist} />
+          <UserRoute exact path="/checkout" component={Checkout} />
+          <UserRoute exact path="/Nftownership" component={Nftownership} />
+          <UserRoute exact path="/payment" component={Payment} />
+          <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
+          <AdminRoute exact path="/admin/category" component={CategoryCreate} />
+          <AdminRoute
+            exact
+            path="/admin/category/:slug"
+            component={CategoryUpdate}
+          />
+          <AdminRoute exact path="/admin/sub" component={SubCreate} />
+          <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
+          <AdminRoute exact path="/admin/product" component={ProductCreate} />
+          <AdminRoute exact path="/admin/products" component={AllProducts} />
+          <AdminRoute
+            exact
+            path="/admin/sliderimageupload"
+            component={SliderImageAdd}
+          />
+          <AdminRoute exact path="/admin/nftwarranty" component={Nftwarranty} />
+          <AdminRoute
+            exact
+            path="/admin/product/:slug"
+            component={ProductUpdate}
+          />
+          <AdminRoute exact path="/admin/coupon" component={CreateCoupon} />
+          <Route exact path="/product/:slug" component={Product} />
+          <Route exact path="/category/:slug" component={CategoryHome} />
+          <Route exact path="/sub/:slug" component={SubHome} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/register/complete" component={RegisterComplete} />
+          <Route exact path="/forgot/password" component={ForgotPassword} />
+        </Switch>
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/funzone" component={Funlandingpage} />
+        <Route exact path="/pacman" component={Pacmangame} />
+        <Route exact path="/vaders" component={Spacevaders} />
+        <Route exact path="/saveship" component={SaveShip} />
+        <Footer />
+      </Suspense>
+    </WagmiConfig>
   );
 };
 
