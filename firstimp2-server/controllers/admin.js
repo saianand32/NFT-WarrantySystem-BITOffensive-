@@ -24,6 +24,20 @@ exports.orderStatus = async (req, res) => {
 };
 
 
+exports.nftMintStatus = async (req, res) => {
+  const { orderId,nftMintStatus } = req.body;
+
+  let updated = await Order.findByIdAndUpdate(
+    orderId,
+    nftMintStatus,
+    { new: true }
+  ).exec();
+  console.log(updated)
+
+  res.json(updated);
+};
+
+
 
 // exports.uploadSliderImage = async (req, res) => {
 //   try {
