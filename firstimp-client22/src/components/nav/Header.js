@@ -91,7 +91,6 @@ const Header = () => {
           </Link>
         </Item>
       )}
-      
 
       {!user && (
         <Item
@@ -128,10 +127,7 @@ const Header = () => {
             Logout
           </Item>
 
-          <div>
-            {" "}
-           
-          </div>
+          <div> </div>
         </SubMenu>
       )}
 

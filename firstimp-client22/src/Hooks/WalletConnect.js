@@ -9,7 +9,7 @@ const WalletConnect = () => {
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
-
+// {(ensName ?? address).substring(0, 4)}
   return (
     <div>
       {isConnected ? (

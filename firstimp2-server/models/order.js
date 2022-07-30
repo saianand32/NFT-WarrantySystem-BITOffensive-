@@ -27,6 +27,13 @@ const orderSchema = new mongoose.Schema(
         "Cancelled",
       ],
     },
+    nftMintStatus: {
+      type: Boolean,
+      default: false,
+    },
+
+
+
     shippingInfo: {},
     // shippingInfo: {
     //   address: {

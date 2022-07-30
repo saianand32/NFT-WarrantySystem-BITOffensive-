@@ -23,6 +23,7 @@ const loadOrders = () =>
   });
 
 const handleStatusChange = (orderId, orderStatus) => {
+  console.log(orderId, orderStatus)
   updateOrderStatus(user.token, orderId, orderStatus).then((res) => {
     console.log(res.data)
     toast.success("Status Updated")
