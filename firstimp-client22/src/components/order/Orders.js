@@ -4,6 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import Invoice from "../../components/order/Invoice";
 import { Col, Select, Row } from "antd";
 import moment from "moment";
+import '../../Hooks/Walletcon.css'
 
 const { Option } = Select;
 
@@ -32,7 +33,7 @@ const Orders = ({ orders, handleStatusChange }) => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody style={{background:"white"}}>
         {order.products.map((p, i) => (
           <tr key={i}>
             <td>
@@ -62,35 +63,37 @@ const Orders = ({ orders, handleStatusChange }) => {
     <PDFDownloadLink
       document={<Invoice order={order} />}
       fileName="invoice.pdf"
-      className="btn btn-sm btn-outline-primary"
+      className="btn walletbutton"
+      style={{paddingTop:"-4px",borderRadius:"30px"}}
+      
     >
-      Download Invoice
+      Download Invoice 📩
     </PDFDownloadLink>
   );
 
   const showEachOrders = () =>
     orders.map((order, i) => (
       <div key={order._id}>
-        <div className="m-5 p-3 card">
+        <div className="m-5 p-3 card dashcard" style={{borderRadius:"20px"}}>
           {/* <ShowPaymentInfo order={order} /> */}
 
           <Row>
             <Col lg={12}>
               <div className=" p-3 ">
-                <p style={{ fontSize: "25px" }}>Shipping Info:</p>
-                <div>Name: {order.paymentIntent.shippingAdd.name}</div> <br />
-                <div>
+                <p style={{ fontSize: "30px",color:"rgb(255, 250, 243)",fontWeight:"bold" }}>Shipping Info: 📦</p>
+                <div style={{fontWeight:"bold"}}>Name: {order.paymentIntent.shippingAdd.name}</div> <br />
+                <div style={{fontWeight:"bold"}}>
                   Mobile Number: {order.paymentIntent.shippingAdd.mobileNum}
                 </div>{" "}
                 <br />
-                <div>Email: {order.paymentIntent.shippingAdd.email}</div>
+                <div style={{fontWeight:"bold"}}>Email: {order.paymentIntent.shippingAdd.email}</div>
                 <br />
-                <div>
+                <div style={{fontWeight:"bold"}}>
                   Shipping Address: {order.paymentIntent.shippingAdd.add}
                 </div>{" "}
                 <br />
                 {order.paymentIntent.shippingAdd.specialMessage ? (
-                  <div>
+                  <div style={{fontWeight:"bold"}}>
                     Special message:{" "}
                     {order.paymentIntent.shippingAdd.specialMessage}
                   </div>
@@ -102,22 +105,23 @@ const Orders = ({ orders, handleStatusChange }) => {
             </Col>
             <Col lg={12}>
               <div className=" p-3 ">
-                <p style={{ fontSize: "25px" }}>Payment Info:</p>
-                <div>
-                  Status:{" "}
+                <p style={{ fontSize: "30px",color:"rgb(255, 250, 243)",fontWeight:"bold" }}>Payment Info: 💵</p>
+                <div style={{fontWeight:"bold"}}>
+                  Status:{" "} 
                   {order.paymentIntent.paymentInfo.stripeResponse.status}
-                </div>{" "}
+                  {" "}✅
+                </div >{" "}
                 <br />
-                <div>
+                <div style={{fontWeight:"bold"}}>
                   PaymentID: {order.paymentIntent.paymentInfo.stripeResponse.id}
                 </div>{" "}
                 <br />
-                <div>
+                <div style={{fontWeight:"bold"}}>
                   Amount:{" "}
                   {order.paymentIntent.paymentInfo.stripeResponse.amount / 100}
                 </div>{" "}
                 <br />
-                <div>
+                <div style={{fontWeight:"bold"}}>
                   Date:{" "}
                   {moment
                     .unix(

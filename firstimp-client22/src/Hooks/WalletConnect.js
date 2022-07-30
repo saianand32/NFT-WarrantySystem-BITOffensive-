@@ -1,6 +1,8 @@
 import { useAccount, useConnect, useEnsName } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 
+import './Walletcon.css'
+
 const WalletConnect = () => {
   const { address, isConnected } = useAccount();
   const { data: ensName } = useEnsName({ address });
@@ -11,9 +13,10 @@ const WalletConnect = () => {
   return (
     <div>
       {isConnected ? (
-        <div>Connected to {(ensName ?? address).substring(0, 4)}</div>
+        <div className="walletbutton" style={{marginTop:"4px",height:"40px"}} >🦊 Connected to {(ensName ?? address).substring(0, 4) } ✅</div>
       ) : (
-        <button onClick={() => connect()}>Connect Wallet</button>
+        <button onClick={() => connect()} className="walletbutton" >🦊 Connect Wallet</button>
+        
       )}
     </div>
   );

@@ -4,6 +4,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import Invoice from "../../components/order/Invoice";
 import { Col, Select, Row } from "antd";
 import moment from "moment";
+import './NftAdmincard.css'
 
 const NftIssueOrders = ({ orders, handleStatusChange }) => {
 
@@ -13,9 +14,9 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
   console.log(orders);
 
   const showOrderInTable = (order) => (
-    <table className="table table-bordered">
-      <thead className="thead-light">
-        <tr>
+    <table className="table table-bordered nfttable" style={{background:"white"}}>
+      <thead className="thead-light nftrow">
+        <tr >
           <th scope="col">Serial Number</th>
           <th scope="col">ProductID</th>
           <th scope="col">Warranty(months)</th>
@@ -24,7 +25,7 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody >
         {order.products.map((p, i) => (
           <tr key={i}>
             <td>
@@ -54,14 +55,15 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
   const showEachOrders = () =>
     orders.map((order, i) => (
       <div key={order._id}>
-        <div className="m-5 p-3 card">
+        <div className="mt-5 ml-5 mr-3 p-3 card nftcard" >
           <Row>
             <Col lg={12}>
               <div className=" p-2 ">
-                <p style={{ fontSize: "45px" }}>Nft issue info</p>
-                <div>Wallet Adress: {order.paymentIntent.wallet.walletAdd}</div>
+                <p className="cardheading">NFT Warranty Info 🚀</p>
+                {/* <div >Wallet Adress: {order.paymentIntent.wallet.walletAdd}</div> */}
+                <div><span style={{color:"black"}}><font size='4'><b>🍪 Wallet Adress:</b></font></span> <span style={{color:"rgb(245, 233, 217)"}}><font size='3'><b>{order.paymentIntent.wallet.walletAdd}</b></font></span></div>
                 <br />
-                <div>IPFShash: {order.paymentIntent.wallet.ipfsHash}</div>
+                <div><span style={{color:"black"}}><font size='3'><b>🔑 IPFShash:</b></font></span> <span style={{color:"rgb(245, 233, 217)"}}><font size='2.7'><b>{order.paymentIntent.wallet.ipfsHash}</b></font></span></div>
 
                 <br />
               </div>

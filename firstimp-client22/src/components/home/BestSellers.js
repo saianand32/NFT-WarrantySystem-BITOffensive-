@@ -39,6 +39,7 @@ const BestSellers = () => {
 
   return (
     <>
+    <div style={{background:"#f8f0ce",marginTop:"-50px"}}>
       <div className="container">
         {loading ? (
           <LoadingCard count={3} />
@@ -52,6 +53,7 @@ const BestSellers = () => {
           </div>
         )}
       </div>
+    
       <div className="row">
         <nav className="col-md-4 offset-md-4 text-center pt-5 p-3">
           <Pagination
@@ -60,6 +62,7 @@ const BestSellers = () => {
             onChange={(value) => setPage(value)}
           />
         </nav>
+      </div>
       </div>
     </>
   );

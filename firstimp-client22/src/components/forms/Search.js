@@ -31,7 +31,7 @@ const Search = () => {
         placeholder=" Search for Products"
         onChange={handleChange}
       />
-      <SearchOutlined onClick={handleSubmit} style={{ pointer: "cursor" , color:"#b3d146"}} />
+      <SearchOutlined onClick={handleSubmit} style={{ pointer: "cursor" , color:"orange"}} />
     </form>
   );
   

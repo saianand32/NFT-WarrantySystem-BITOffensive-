@@ -1,0 +1,33 @@
+
+p{
+    color:white;
+}
+.nftcard{
+    background: hsla(345, 100%, 60%, 1);
+
+    background: linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    background: -moz-linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    background: -webkit-linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF3366", endColorstr="#F8A902", GradientType=1 );
+
+border-radius: 30px;
+border:2px solid rgb(255, 166, 0);
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.nfttable{
+    background-color: white;
+}
+.nftrow{
+}
+
+.cardheading{
+    font-weight: bold;
+    color:rgb(255, 250, 243);
+    font-size: 50px;
+    
+}

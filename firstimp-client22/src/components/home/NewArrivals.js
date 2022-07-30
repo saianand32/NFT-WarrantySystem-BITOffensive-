@@ -39,7 +39,7 @@ const NewArrivals = () => {
   };
 
   return (
-    <>
+    <div style={{background:"#f8f0ce",marginTop:"-50px"}}>
       
       <div className="container">
         {loading ? (
@@ -64,7 +64,7 @@ const NewArrivals = () => {
           />
         </nav>
       </div>
-    </>
+    </div>
   );
 };
 

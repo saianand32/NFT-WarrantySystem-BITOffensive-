@@ -18,11 +18,29 @@
 
     /* font-family: "Mistral Regular"; */
     font-family: 'Balsamiq Sans', cursive;
-    color:#b3d146;
+    /* color:#c8ff00; */
     font-weight: 400;
     font-size: 34px;
     text-decoration: none;
 
+}
+
+.orangecls{
+    background: hsla(345, 100%, 60%, 1);
+    
+
+    background: linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    background: -moz-linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    background: -webkit-linear-gradient(225deg, hsla(345, 100%, 60%, 1) 0%, hsla(41, 98%, 49%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF3366", endColorstr="#F8A902", GradientType=1 );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    font-size: 15px;
 }
 
 .logo_img {

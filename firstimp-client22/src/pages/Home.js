@@ -18,19 +18,20 @@ const Home = () => {
     <Announcement/>
 
       <Slider />
-      <h4 className="text-left p-3 mt-5 mb-5 display-5 jumbotron " style={{background:"white",color:"black"}}>
+      <h4 className="text-left p-3 mt-2 display-5 jumbotron " style={{background:"white",color:"black"}}>
         New Arrivals
       </h4>
       <NewArrivals />
      
       <br />
-      <h4 className="text-left p-3 mt-5 mb-5 display-5 jumbotron " style={{background:"white",color:"black"}}>
+      <h4 className="text-left p-3 mt-2 display-5 jumbotron " style={{background:"white",color:"black"}}>
         Best Sellers
       </h4>
       <BestSellers />
     
       
       <br />
+      
     </div>
   );
 };

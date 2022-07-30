@@ -7,6 +7,7 @@ import NftIssueOrders from "../../components/order/NftissueOrder";
 import Web3 from "web3";
 
 import { abi } from "../../contract/abi";
+import './NftWarranty.css'
 
 
 // const provider = new Web3.providers.HttpProvider(
@@ -32,7 +33,6 @@ const Nftwarranty = () => {
     const signedMessage = await web3.eth.sign(web3.utils.sha3('Hello world'), "0x3aEFd9DA1dCC077d24E4b5612AeF634766F82B17")
     let signer = await web3.eth.personal.ecRecover("hello world", signedMessage);
   
-    console.log( signer);
   }
 
 

@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   padding: 20px;
   justify-content: space-between;
-  background:#232F3E;
+  background:#161e27;
   // background:#1b1c1d;
   z-index: 1000;
   height: 28px;
@@ -62,11 +62,17 @@ const Title = styled.h1`
    color:white;
    margin-top:2px;
    &:hover {
-    background-color: #1b242f;
-    // border: 1.5px solid #b3d146;
-    border-radius: 2px;
-     
-    color:#b3d146;
+    background-color: #0D1116;
+    
+    border-radius: 9px;
+    // font-weight:bold;
+    // background: hsla(345, 100%, 60%, 1);
+
+    // 
+    color:orange;
+    
+    
+   
   }
 
 `;
@@ -129,7 +135,7 @@ const CategoryList = () => {
         {/* <Image src="https://media.istockphoto.com/photos/posters-in-cozy-apartment-interior-picture-id943910360" /> */}
         <Info> 
        
-        <Title  >Funzone</Title>
+        <Title  >🥳 Funzone</Title>
      
         </Info>
         </Link>

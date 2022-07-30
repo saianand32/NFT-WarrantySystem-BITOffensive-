@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './AdminNav.css'
 
 const AdminNav = () => (
   <nav>
@@ -51,8 +52,8 @@ const AdminNav = () => (
         </Link>
       </li>
 
-      <li className="nav-item">
-        <Link to="/admin/nftwarranty" className="nav-link">
+      <li className="nav-item nftlink" >
+        <Link to="/admin/nftwarranty" className="nav-link" style={{color:"white"}}>
          NFT WARRANTY
         </Link>
       </li>

@@ -47,30 +47,34 @@ const Header = () => {
       onClick={handleClick}
       mode="horizontal"
       id="navMenu"
-      style={{ background: "#131921", height: "50px", zIndex: "1500" }}
+      style={{ background: "#0d1116", height: "50px", zIndex: "1500" }}
     >
       <Item className="nav_logo_container">
         <div className="nav_logo_container">
+          <Link to ="/">
           {/* <img className="logo_img" src={logo} alt="logo" /> */}
-          <div className="nav_logo">BIToffensive_Store</div>
+          <div className="nav_logo orangecls "style={{fontWeight:"bold",fontSize:"30px"}}>BIT</div>
+          </Link>
         </div>
       </Item>
-      <Item key="home" icon={<AppstoreOutlined style={{ color: "#b3d146" }} />}>
+      <Item key="home" className="orangecls" icon={<AppstoreOutlined style={{ color: "orange" }} />}>
         <Link to="/" id="navLinkText">
           Home
         </Link>
       </Item>
-      <Item key="shop" icon={<ShopOutlined style={{ color: "#b3d146" }} />}>
+      
+      <Item key="shop" className="orangecls" icon={<ShopOutlined style={{ color: "orange" }} />}>
         <Link to="/shop" id="navLinkText">
           Shop
         </Link>
       </Item>
       <Item
         key="cart"
-        icon={<ShoppingCartOutlined style={{ color: "#b3d146" }} />}
+      
+        icon={<ShoppingCartOutlined style={{ color: "orange" }} />}
       >
         <Link to="/cart">
-          <Badge count={cart.length} offset="9 0" id="navLinkText">
+          <Badge className="orangecls" count={cart.length} offset="9 0" id="navLinkText">
             cart
           </Badge>
         </Link>
@@ -79,8 +83,8 @@ const Header = () => {
       {!user && (
         <Item
           key="register"
-          icon={<UserAddOutlined style={{ color: "#b3d146" }} />}
-          className="float-right"
+          icon={<UserAddOutlined style={{ color: "orange" }} />}
+          className="float-right orangecls"
         >
           <Link to="/register" id="navLinkText">
             Register
@@ -92,8 +96,8 @@ const Header = () => {
       {!user && (
         <Item
           key="login"
-          icon={<UserOutlined style={{ color: "#b3d146" }} />}
-          className="float-right"
+          icon={<UserOutlined style={{ color: "orange" }} />}
+          className="float-right orangecls"
         >
           <Link to="/login" id="navLinkText">
             Login
@@ -103,24 +107,24 @@ const Header = () => {
 
       {user && (
         <SubMenu
-          icon={<SettingOutlined />}
+          icon={<SettingOutlined style={{color:"orange"}}/>}
           title={user.email && user.email.split("@")[0]}
-          className="float-right"
-          style={{ color: "#b3d146" }}
+          className="float-right "
+          style={{position:"relative",zIndex:"100000000" ,color:"#FF005D",fontWeight:"bold"}}
         >
           {user && user.role === "subscriber" && (
-            <Item>
+            <Item style={{color:"#FF005D",fontWeight:"bold"}}>
               <Link to="/user/history">Dashboard</Link>
             </Item>
           )}
 
           {user && user.role === "admin" && (
-            <Item>
-              <Link to="/admin/dashboard">Dashboard</Link>
+            <Item  >
+              <Link to="/admin/dashboard" style={{color:"#FF005D",fontWeight:"bold"}}>Dashboard</Link>
             </Item>
           )}
 
-          <Item icon={<LogoutOutlined />} onClick={logout}>
+          <Item style={{color:"#FF005D",fontWeight:"bold"}} icon={<LogoutOutlined />} onClick={logout}>
             Logout
           </Item>
 
@@ -134,8 +138,10 @@ const Header = () => {
       <span className="float-right pr-2">
         <Search />
       </span>
-
+      <Item >
       <WalletConnect />
+      </Item>
+
     </Menu>
   );
 };

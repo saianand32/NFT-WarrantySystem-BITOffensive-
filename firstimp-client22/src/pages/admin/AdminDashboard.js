@@ -4,6 +4,7 @@ import {getOrders, updateOrderStatus} from "../../functions/admin";
 import {useSelector, useDispatch} from "react-redux";
 import {toast} from "react-toastify";
 import Orders from "../../components/order/Orders";
+import './AdminDashboard.css'
 
 const AdminDashboard = () => {
 const [orders, setOrders] = useState([]);
@@ -30,7 +31,7 @@ const handleStatusChange = (orderId, orderStatus) => {
 }
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid dashbackground" >
       <div className="row">
         <div className="col-md-2">
           <AdminNav />
