@@ -87,7 +87,6 @@ const Header = () => {
           </Link>
         </Item>
       )}
-      
 
       {!user && (
         <Item
@@ -109,7 +108,7 @@ const Header = () => {
           style={{ color: "#b3d146" }}
         >
           {user && user.role === "subscriber" && (
-            <Item>
+            <Item className="z-">
               <Link to="/user/history">Dashboard</Link>
             </Item>
           )}
@@ -124,10 +123,7 @@ const Header = () => {
             Logout
           </Item>
 
-          <div>
-            {" "}
-           
-          </div>
+          <div> </div>
         </SubMenu>
       )}
 

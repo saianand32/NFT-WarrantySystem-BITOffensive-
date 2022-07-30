@@ -7,11 +7,11 @@ const WalletConnect = () => {
   const { connect } = useConnect({
     connector: new InjectedConnector(),
   });
-
+// {(ensName ?? address).substring(0, 4)}
   return (
     <div>
       {isConnected ? (
-        <div>Connected to {(ensName ?? address).substring(0, 4)}</div>
+        <div>Connected</div>
       ) : (
         <button onClick={() => connect()}>Connect Wallet</button>
       )}
