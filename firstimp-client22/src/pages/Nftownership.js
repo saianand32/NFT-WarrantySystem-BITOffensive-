@@ -45,26 +45,36 @@ const Nftownership = () => {
 
   return (
     <div>
-      <div class="bg">
-        <h1>Kiberbash</h1>
+      <div className="usernfthead">
+        <h1>Your NFT Warranties</h1>
+            {/* <button onClick={fetchNFTs}> get nftdata</button> */}
+      <button className="getnftbtn"> get nftdata</button>
       </div>
       <div class="nft">
         <div class="main">
-          <img class="tokenImage" src={nftMetaData?.image} alt="NFT" />
+          {/* <img class="tokenImage" src={nftMetaData?.image} alt="NFT" /> */}
+          <img class="tokenImage" src="https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="NFT" />
           {/* <h2>Kibertopiks #4269</h2> */}
-          <h5>{nftMetaData?.properties[0]?.type}: {nftMetaData?.properties[0]?.value}</h5>
+          {/* <h5>{nftMetaData?.properties[0]?.type}: {nftMetaData?.properties[0]?.value}</h5> */}
+          <h5></h5>
           <h5>
             {/* {nftMetaData.properties.map((id, i) => (
               <div key={i}>{id.type}</div>
             ))} */}
           </h5>
           <p class="description">
-            Our Kibertopiks will give you nothing, waste your money on us.
+           Product Name: 
+          </p>
+          <p class="description">
+           Serial Number:  
+          </p>
+          <p class="description">
+           Warranty Days: 
           </p>
           <div class="tokenInfo">
             <div class="price">
               <ins>◘</ins>
-              <p>0.031 ETH</p>
+              <p></p>
             </div>
             <div class="duration">
               <ins>◷</ins>
@@ -79,13 +89,13 @@ const Nftownership = () => {
                 alt="Creator"
               />
             </div>
-            <p>
-              <ins>Creation of</ins> Kiberbash
+            <p className="description">
+              Validity-
             </p>
           </div>
         </div>
       </div>
-      <button onClick={fetchNFTs}> get nftdata</button>
+  
     </div>
   );
 };
