@@ -193,9 +193,9 @@ const Checkout = ({ history }) => {
   const handleShippingAdd = async () => {
     if (typeof window !== undefined) {
       localStorage.setItem("shippingAddress", JSON.stringify(shippingaddd));
-
+console.log(ipfsHash)
       await sendFileToIPFS();
-      await wallDispatch();
+       wallDispatch();
     }
     dispatch({
       type: "SHIPPING_ADDRESS",

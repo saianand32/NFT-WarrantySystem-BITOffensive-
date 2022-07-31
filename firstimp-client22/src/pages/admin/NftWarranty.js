@@ -20,7 +20,7 @@ const ipfsArray = [];
 
 const rpcURL = "https://rinkeby.infura.io/v3/c7947df1c5c54702851df8b415d9f873";
 const web3 = new Web3(Web3.givenProvider || rpcURL);
-const contractAddress = "0x2d72f881dEdeBC461BCd97b1f299F6bb92f4b4e4";
+const contractAddress = "0xc5cc4dca8e09aeb8aab2b5024cc2990afebf71e4";
 const contract = new web3.eth.Contract(abi, contractAddress);
 
 const Nftwarranty = () => {
