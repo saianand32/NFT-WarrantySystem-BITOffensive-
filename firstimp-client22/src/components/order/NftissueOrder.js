@@ -182,7 +182,7 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
                         order._id
                       );
                     }}
-                  >
+                    className="mintbtn"                  >
                     Mint{" "}
                   </button>
                 </span>
