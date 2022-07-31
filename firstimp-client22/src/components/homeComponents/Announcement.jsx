@@ -19,7 +19,7 @@ const Container = styled.div`
 `;
 
 const Announcement = () => {
-  return <Container style={{display:"flex",justifyContent:"center", position:"relative",width:"100vw",zIndex:"100"}}>
+  return <Container style={{display:"flex",justifyContent:"center", position:"relative",width:"100vw",zIndex:"100",border:"6px solid orange"}}>
     <div style={{width:"100vw"}}>
       <Link to = "/funzone">
       <img src="https://i.postimg.cc/BbDxZym7/banner.png" alt="#" style={{width:"100vw",height:"100px"}} />

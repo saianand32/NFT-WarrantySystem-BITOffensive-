@@ -126,8 +126,9 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
                     </font>
                   </span>
                 </div>
+                <br />
                 <div style={{ fontWeight: "bold" }}>
-                  Expiry date:{" "}
+               <b>📅 Expiry date:</b>{" "}
                   {moment(
                     moment
                       .unix(
@@ -138,7 +139,9 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
                     .add(order.products[0].product.warrantyMonths, "d")
                     .format("YYYY/MM/DD")}
                 </div>
-                <div>
+                <br />
+                <div style={{display:"flex"}}>
+                <div style={{fontWeight:"bold"}}><b>⚓ Validity?:{" "}</b></div>
                   {moment(
                     moment
                       .unix(
@@ -148,12 +151,12 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
                   )
                     .add(order.products[0].product.warrantyMonths, "d")
                     .format("YYYY/MM/DD") >= moment().format("YYYY/MM/DD") ? (
-                    <div style={{ fontWeight: "bold", color: "green" }}>
-                      VALID
+                    <div style={{ fontWeight: "bold", color: "green",marginLeft:"5px" }}>
+                       VALID
                     </div>
                   ) : (
-                    <div style={{ fontWeight: "bold", color: "red" }}>
-                      INVALID
+                    <div style={{ fontWeight: "bold", color: "red",marginLeft:"5px" }}>
+                       INVALID
                     </div>
                   )}
                 </div>
@@ -183,7 +186,7 @@ const NftIssueOrders = ({ orders, handleStatusChange }) => {
                       );
                     }}
                     className="mintbtn"                  >
-                    Mint{" "}
+                    🪙 Mint{" "}
                   </button>
                 </span>
               </div>

@@ -9,6 +9,7 @@ import ShowPaymentInfo from "../../components/cards/ShowPaymentInfo";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Invoice from "../../components/order/Invoice";
 import { Spin } from "antd";
+import '../../components/order/NftAdmincard.css'
 
 const History = () => {
   const { user, cart } = useSelector((state) => ({ ...state }));
@@ -44,7 +45,7 @@ const History = () => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody style={{backgroundColor:"white"}}>
         {order.products.map((p, i) => (
           <tr key={i}>
             <td>
@@ -72,7 +73,7 @@ const History = () => {
     <PDFDownloadLink
       document={<Invoice order={order} />}
       fileName="invoice.pdf"
-      className="btn btn-sm btn-outline-primary"
+      className="btn mintbtn"
     >
       Download Invoice
     </PDFDownloadLink>
@@ -80,7 +81,7 @@ const History = () => {
 
   const showEachOrders = () =>
     orders.map((order, i) => (
-      <div key={i} className="m-5 p-3 card">
+      <div key={i} className="m-5 p-3 card nftcard">
         {/* <ShowPaymentInfo order={order} /> */}
 
         {showOrderInTable(order)}
