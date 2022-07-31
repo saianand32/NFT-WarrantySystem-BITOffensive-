@@ -57,67 +57,68 @@ const Nftownership = () => {
         2
       )
       .catch((error) => console.log(error));
-
-      // console.log((userNft[0].id.tokenId).substring(65) )
+    console.log(userNft);
   };
 
-  console.log(userNft)
-  const burnNft = () => {
-    console.log("first");
-  };
+  const burnNft=()=>{
+    console.log("nftburn");
+  }
+  // const test = nftMetaData.properties
+
+  // console.log(test);
 
   useEffect(() => {
     // fetchNFTs();
     console.log("first");
   }, []);
-  // console.log(userNft[0].metadata.image);
-  // console.log((userNft[0].id )  )
-  
 
   return (
     <div>
-      <div className="usernfthead">
-        <h1>Your NFT Warranties</h1>
-        <button onClick={fetchNFTs} className="getnftbtn">
-          {" "}
-          get nftdata
-        </button>
-      </div>
+        <div className="usernfthead">
+            <h1>Your NFT Warranties</h1>
+            <button onClick={fetchNFTs} className="getnftbtn"> get nftdata</button>
+          
+          </div>
 
-        {userNft.map((p, i) => (
-          <div key={i}>
-            <div class="nft">
-              <div class="main">
-                <img class="tokenImage" src={p.metadata.image} alt="NFT" />
+ 
+      <div style={{display:"flex"}}>
+          
+      {userNft.map((p, i) => (
+        <div key={i} className="nftcontain"  >
+        
+          <div className="nft">
+            <div className="main">
+              <img className="tokenImage" src={p.metadata.image} alt="NFT" />
 
-                <div>
-                  {p.metadata.properties.map((prop, k) => (
-                    <div key={k}>
-                      <div>
-                        <p class="description">{prop.type}:</p>:{prop.value}
-                      </div>
+              <div>
+                {p.metadata.properties.map((prop, k) => (
+                  <div key={k}>
+                    <div>
+                      <p className="description">{prop.type}:</p>:{prop.value}
                     </div>
-                  ))}
-                </div>
-
-                <div class="tokenInfo">
-                  <div class="price">
-                    <ins>◘</ins>
-                    <p></p>
                   </div>
-                  <div class="duration">
-                    <ins>◷</ins>
-                    <p>11 days left</p>
-                  </div>
-                </div>
+                ))}
               </div>
-            </div>
 
            
-            <button onClick={()=>burn((p.id.tokenId).substring(65))}>burn</button>
+              <div className="tokenInfo">
+                <div className="price">
+                  <ins>◘</ins>
+                  <p></p>
+                </div>
+                <div className="duration">
+                  <p>11 days left</p>
+                </div>
+
+                <button style={{width:"100px",height:"60px"}}  onClick={()=>burn((p.id.tokenId).substring(65))}>ClickMe</button>
+              </div>
+
+            
+            </div>
           </div>
-        ))}
-      
+        </div>
+      ))}
+      </div>
       <button onClick={fetchNFTs}>fetchNFTs</button>
     </div>
   );

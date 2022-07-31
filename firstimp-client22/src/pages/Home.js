@@ -15,8 +15,7 @@ const Home = () => {
     {/* <Background /> */}
     
     <CategoryList/>
-    <Announcement/>
-
+      <Announcement/>
       <Slider />
       <h4 className="text-left p-3 mt-2 display-5 jumbotron " style={{background:"white",color:"black"}}>
         New Arrivals

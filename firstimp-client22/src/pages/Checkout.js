@@ -14,8 +14,13 @@ import { toast } from "react-toastify";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { ethers } from "ethers";
-
+import Web3 from "web3";
 import axios from "axios";
+import { abi } from "../contract/abi";
+const rpcURL = "https://rinkeby.infura.io/v3/c7947df1c5c54702851df8b415d9f873";
+const web3 = new Web3(Web3.givenProvider || rpcURL);
+const contractAddress = "0x2d72f881dEdeBC461BCd97b1f299F6bb92f4b4e4";
+const contract = new web3.eth.Contract(abi, contractAddress);
 
 const Checkout = ({ history }) => {
   const { user, pageState, shippingAdd, cart } = useSelector((state) => ({
@@ -73,7 +78,24 @@ const Checkout = ({ history }) => {
       },
     ],
   };
+  async function burn() {
+    try {
+      // let balance = await web3.eth.getBalance(address);
 
+      await contract.methods
+        .burn(31)
+        .send({ from: address })
+        .on("receipt", function (receipt) {
+          console.log(receipt);
+          toast.success(`Mint done to add: ${receipt.to}`);
+        });
+
+      //console.log(test);
+    } catch (err) {
+      console.log(err);
+      alert("something wents wrong");
+    }
+  }
   const sendFileToIPFS = async (e) => {
     console.log(address);
     try {
@@ -254,6 +276,8 @@ console.log(ipfsHash)
   const showApplyCoupon = () => (
     <div className="row">
       <div className="col-md-6">
+
+        <button onClick={burn}>burn</button>
         <Input
           type="text"
           className=""

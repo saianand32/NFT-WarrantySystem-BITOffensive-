@@ -61,16 +61,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
     setTooltip("Added");
   };
 
-  const handleWishlist = () => {
-    addItemToWishlist(_id, user.token).then((res) => {
-      console.log(res.data);
-      if (res.data.ok) {
-        setTooltip("Added");
-        toast.success("Item Added to Wishlist");
-        history.push("/user/wishlist");
-      }
-    });
-  };
+ 
 
   return (
     <>
@@ -96,12 +87,8 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
          
           <TabPane tab="Specification" key="1">
            <div className="specification">
-             <span className="specification_title"> Width:</span>{width} cm<br />
              <span className="specification_title"> Brand:  </span>{brand} <br />
-             <span className="specification_title"> Fabric Content:</span>{material} <br />
              <span className="specification_title"> Application:</span>{application} <br />
-             <span className="specification_title"> Design:</span>{design} <br />
-             <span className="specification_title"> Style:</span>{style} <br />
              <span className="specification_title"> Instruction:</span>{instruction} <br />
            </div>
           </TabPane>
@@ -117,11 +104,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
         <h2 className=" p-3  ">{title}</h2>
 
         {/*rating */}
-        {product && product.ratings && product.ratings.length > 0 ? (
-          showAverage(product)
-        ) : (
-          <div className="text-center pt-1 pb-3">No Rating Yet.</div>
-        )}
+     
 
         <Card
         style={{boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px",borderRadius:"5px"}}
@@ -137,10 +120,7 @@ const SingleProduct = ({ product, rating, onStarClick }) => {
               </a>
             </Tooltip>,
             <Tooltip title={wishlistTooltip}>
-              <div onClick={handleWishlist}>
-                <HeartOutlined className="text-success" /> <br /> Add to
-                Wishlist
-              </div>
+             
             </Tooltip>,
             <RatingModal>
               <StarRating
