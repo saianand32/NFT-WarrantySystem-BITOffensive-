@@ -113,11 +113,11 @@ const Nftownership = () => {
               </div>
             </div>
 
-            {/* <button onClick={burn(5)}> Check Validity</button> */}
+           
             <button onClick={()=>burn((p.id.tokenId).substring(65))}>burn</button>
           </div>
         ))}
-      <button onClick={()=>burn(5)}>burn</button>
+      
       <button onClick={fetchNFTs}>fetchNFTs</button>
     </div>
   );
