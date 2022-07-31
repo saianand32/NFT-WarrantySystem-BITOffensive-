@@ -6,6 +6,7 @@ const ProductListItems = ({ product }) => {
     price,
     category,
     subs,
+    warrantyMonths,
     shipping,
     color,
     brand,
@@ -68,6 +69,13 @@ const ProductListItems = ({ product }) => {
         Brand{" "}
         <span className="label label-default label-pill pull-xs-right">
           {brand}
+        </span>
+      </li>
+
+      <li className="list-group-item">
+        Warranty(Months){" "}
+        <span className="label label-default label-pill pull-xs-right">
+          {warrantyMonths}
         </span>
       </li>
       
