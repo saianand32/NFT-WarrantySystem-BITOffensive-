@@ -7,7 +7,7 @@ import axios from "axios";
 const rpcURL = "https://rinkeby.infura.io/v3/c7947df1c5c54702851df8b415d9f873";
 const web3 = new Web3(Web3.givenProvider || rpcURL);
 
-const contractAddress = "0x2d72f881dEdeBC461BCd97b1f299F6bb92f4b4e4";
+
 const Nftownership = () => {
   const { address, isConnected } = useAccount();
   const [userNft, setUserNfts] = useState([]);
@@ -35,15 +35,12 @@ const Nftownership = () => {
       .catch((error) => console.log(error));
     console.log(userNft[0].metadata.image);
   };
+;
 
-  // const test = nftMetaData.properties
-
-  // console.log(test);
-
-  useEffect(() => {
-    fetchNFTs();
-    console.log("first");
-  }, []);
+  // useEffect(() => {
+  //   fetchNFTs();
+  //   console.log("first");
+  // }, []);
 
   return (
     <div>

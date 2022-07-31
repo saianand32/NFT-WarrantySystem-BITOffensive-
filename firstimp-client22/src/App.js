@@ -26,6 +26,7 @@ import {
 } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import Profile from "./Hooks/WalletConnect";
+import UserNftPage from "./pages/UserNftPage";
 
 const { provider, webSocketProvider } = configureChains(defaultChains, [
   publicProvider(),
@@ -124,6 +125,8 @@ const App = () => {
           <UserRoute exact path="/user/wishlist" component={Wishlist} />
           <UserRoute exact path="/checkout" component={Checkout} />
           <UserRoute exact path="/Nftownership" component={Nftownership} />
+          <UserRoute exact path="/nft" component={UserNftPage} />
+
           <UserRoute exact path="/payment" component={Payment} />
           <AdminRoute exact path="/admin/dashboard" component={AdminDashboard} />
           <AdminRoute exact path="/admin/category" component={CategoryCreate} />
