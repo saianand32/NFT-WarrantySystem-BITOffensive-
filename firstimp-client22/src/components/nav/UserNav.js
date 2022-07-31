@@ -21,6 +21,12 @@ const UserNav = () => (
           Wishlist
         </Link>
       </li>
+
+      <li className="nav-item">
+        <Link to="/Nftownership" className="nav-link">
+          NFT Warranties
+        </Link>
+      </li>
     </ul>
   </nav>
 );
