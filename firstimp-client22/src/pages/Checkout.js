@@ -7,6 +7,7 @@ import {
   applyDiscount,
 } from "../functions/user";
 import moment from "moment";
+import { useAccount, useConnect, useEnsName } from "wagmi";
 
 import { Button, Card, Input } from "antd";
 import { toast } from "react-toastify";
@@ -21,12 +22,13 @@ const Checkout = ({ history }) => {
     ...state,
   }));
   const dispatch = useDispatch();
+  const { address, isConnected } = useAccount();
 
   const [walletAddress, setWalletAddress] = useState("");
 
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
-  const [address, setAddress] = useState("");
+  const [addresss, setAddress] = useState("");
   const [addressSaved, setAddressSaved] = useState(false);
   const [coupon, setCoupon] = useState("");
   const [name, setName] = useState("");
@@ -38,8 +40,8 @@ const Checkout = ({ history }) => {
   const [show, setShow] = useState(false);
   const [ipfsHash, setIpfsHash] = useState("");
 
-  console.log(moment().add(30, 'days'));
-  // const {}
+  
+
   var date = new Date();
 
   var data = {
@@ -60,8 +62,10 @@ const Checkout = ({ history }) => {
         value: cart[0].serialNumber,
       },
       {
-        type: "Warranty Expiry",
-        value: cart[0].warrantyMonths,
+        type: "Warranty Expiry Date",
+        value: moment(moment().format("YYYY/MM/DD"))
+          .add(cart[0].warrantyMonths, "d")
+          .format("YYYY/MM/DD"),
       },
       {
         type: "purchase date",
@@ -71,6 +75,7 @@ const Checkout = ({ history }) => {
   };
 
   const sendFileToIPFS = async (e) => {
+    console.log(address);
     try {
       var config = {
         method: "post",
@@ -100,24 +105,16 @@ const Checkout = ({ history }) => {
 
   const btnhandler = async () => {
     await sendFileToIPFS();
-    await wall();
-    // Asking if metamask is already present or not
-    if (window.ethereum) {
-      // res[0] for fetching a first wallet
-      window.ethereum
-        .request({ method: "eth_requestAccounts" })
-        .then((res) => setWalletAddress(res[0]));
-    } else {
-      alert("install metamask extension!!");
-    }
-    console.log(walletAddress);
+    await wallDispatch();
+
+    console.log(address);
   };
 
-  const wall = async () => {
+  const wallDispatch = async () => {
     dispatch({
       type: "WALLET_ADDRESS",
       payload: {
-        walletAdd: walletAddress,
+        walletAdd: address,
         name: user.name,
         email: user.email,
         ipfsHash: ipfsHash,
@@ -185,17 +182,20 @@ const Checkout = ({ history }) => {
   // console.log(ipfsHash);
 
   //setting shipping adress in store
- 
+
   let shippingaddd = {
     name: name,
     mobileNum: mobileNum,
     email: email,
-    add: address,
+    add: addresss,
     specialMessage: speacialMessage,
   };
-  const handleShippingAdd = () => {
+  const handleShippingAdd = async () => {
     if (typeof window !== undefined) {
       localStorage.setItem("shippingAddress", JSON.stringify(shippingaddd));
+
+      await sendFileToIPFS();
+      await wallDispatch();
     }
     dispatch({
       type: "SHIPPING_ADDRESS",
@@ -283,14 +283,6 @@ const Checkout = ({ history }) => {
     <div className="row">
       <div className="col-md-6 p-5">
         <h4>Shipping Address</h4>
-
-        <Button onClick={btnhandler} variant="primary">
-          Connect to wallet
-        </Button>
-        <Button onClick={wall} variant="primary">
-          dispatch
-        </Button>
-
         <div>
           {/* {data.Balance} */}
           {walletAddress}
@@ -334,7 +326,6 @@ const Checkout = ({ history }) => {
           <Input
             type="text"
             className=""
-            //  value={}
             onChange={(e) => setSpeacialMessage(e.target.value)}
             placeholder="Your special message if any"
             required="true"
@@ -349,7 +340,6 @@ const Checkout = ({ history }) => {
           placeholder="Enter Your Address"
           onChange={(e) => setAddress(e.target.value)}
         />
-        {console.log(address)}
 
         <button
           className="btn btn-secondary btn-raised mt-2 btn-block"
@@ -434,7 +424,7 @@ const Checkout = ({ history }) => {
           <div className="col-md-6">
             <button
               className="btn btn-primary btn-raised btn-block ml-3"
-              disabled={!addressSaved || !products.length || !walletAddress}
+              disabled={!addressSaved || !products.length || !address}
               onClick={handlePaymentSession}
             >
               Place Order
