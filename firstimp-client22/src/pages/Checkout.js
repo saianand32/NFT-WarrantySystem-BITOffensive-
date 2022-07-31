@@ -6,6 +6,7 @@ import {
   saveUserAddress,
   applyDiscount,
 } from "../functions/user";
+import moment from "moment";
 
 import { Button, Card, Input } from "antd";
 import { toast } from "react-toastify";
@@ -37,9 +38,10 @@ const Checkout = ({ history }) => {
   const [show, setShow] = useState(false);
   const [ipfsHash, setIpfsHash] = useState("");
 
-  console.log(cart[0].count);
+  console.log(moment().add(30, 'days'));
   // const {}
   var date = new Date();
+
   var data = {
     image:
       "https://ipfs.io/ipfs/QmbSjaM3gJVfG4BuyTsU5hpFhLD9n24Y7mjZvQVztRH1GX",
@@ -183,6 +185,7 @@ const Checkout = ({ history }) => {
   // console.log(ipfsHash);
 
   //setting shipping adress in store
+ 
   let shippingaddd = {
     name: name,
     mobileNum: mobileNum,
