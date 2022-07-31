@@ -38,6 +38,9 @@ const Nftownership = () => {
     console.log(userNft[0].metadata.image);
   };
 
+  const burnNft=()=>{
+    console.log("nftburn");
+  }
   // const test = nftMetaData.properties
 
   // console.log(test);
@@ -82,9 +85,9 @@ const Nftownership = () => {
                   <p></p>
                 </div>
                 <div className="duration">
-                  <ins>◷</ins>
                   <p>11 days left</p>
                 </div>
+                <button style={{width:"100px",height:"60px"}} onClick={burnNft}>ClickMe</button>
               </div>
 
             
