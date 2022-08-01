@@ -59,7 +59,7 @@
 3. Data Management (Databases): 
     - *MongoDB Cloud* - Data management and other details.
 
-4. Web3 JS: 
+4. Web3 JS
     
     
 ## Installation
