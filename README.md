@@ -79,7 +79,6 @@
 
 
 
-### Clone the project:
 
 
 
