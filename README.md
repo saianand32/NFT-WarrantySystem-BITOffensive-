@@ -6,15 +6,16 @@
 
 * How can we fix this??
 
-* Bit offensive store tackles this problem by Decentralizing  the entire system of warranty ownership and claim.✅
+* Bit offensive store tackles this problem by Decentralizing the entire system of **warranty ownership and claim**.✅
 
-* We provide ERC-721 Non-fungible tokens as warranties to the customers which are immutable and easily verifiable.
+* We provide **ERC-721 Non-fungible tokens** as warranties to the customers which are immutable and easily verifiable.
 
-* The NFT tokens provided by us are Decaying in nature which after a certain period, cannot be claimed for warranty benefits offered by the brand/retailer.🏁
+* The NFT tokens provided by us are **Decaying in nature** which after a certain period, cannot be claimed for warranty benefits offered by the brand/retailer.🏁
 
 ## Demo video link
 🟡[Demo Video Link (GoogleDrive)](https://drive.google.com/drive/folders/1oEI4eE_cB1pS2uNzTvLpjX1oDbiRDkYJ?usp=sharing)
-🟡[Demo Video Link(Youtube)](https://youtu.be/er1EO4F24Fs)
+
+🟡[Demo Video Link (Youtube)](https://youtu.be/er1EO4F24Fs)
 
 ## Screenshots 
 
@@ -36,12 +37,13 @@
 
   
 ## Features
-* Implements and Intgerates BlockChain NFT concept with the current digital warranty system.
+* Implements and intgerates **BlockChain NFT** concept with the current digital warranty system.
 * Easy to use by both the admin as well as the user.
 * The user can get a verified warranty NFT on successful delivery of the product without any hassle.
-* The user will also recieve SMS and mail update on successful minting of the NFT warranty
+* The user will also recieve **SMS** and **mail** update on successful minting of the NFT warranty
 * The admin who generates the warranty is also protected as there can be no manipulation of the given warranty token.
-* The warranty token will Expire automatically after the given duration and cannot be usedto claim the warranty thereafter.
+* The warranty token will **Expire automatically** after the given duration and cannot be used to claim the warranty thereafter.
+
 ## TechStack
 
 1. Front End / Client Side
@@ -53,7 +55,7 @@
    
    - *Moment JS*- for time handling of products.
    
-   - *Twilio API and MailGun* - TO send SMS and mail to the users on successfull mint of the warranty.
+   - *Twilio API and MailGun* - To send SMS and mail to the users on successfull minting of the warranty.
   
 
 3. Data Management (Databases): 
@@ -156,8 +158,9 @@ Start frontend server
 
 ## Future Aspects
 
-- Improvisong the system design to integerate huge data sets of users and products.
+- Improvising the system design to integerate huge data sets of users and products.
 - Improving the speed of blockchain related transactions on the website.
+
 ## Authors
 
   > [Nitish Kumar](https://github.com/technitish9123)
