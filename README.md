@@ -115,7 +115,7 @@ Install all dependencies
 Run Backend
 
 ```bash
-  npm start
+ npm start
 ```
 
 
