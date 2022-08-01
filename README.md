@@ -160,9 +160,11 @@ Start frontend server
 - Improving the speed of blockchain related transactions on the website.
 ## Authors
 
-> [Nitish Kumar](https://github.com/technitish9123)
-> [Utsav Sinha](https://github.com/utsavs22)
-> [Saishwar Anand](https://github.com/saianand32)
+  > [Nitish Kumar](https://github.com/technitish9123)
+  
+  > [Utsav Sinha](https://github.com/utsavs22)
+  
+  > [Saishwar Anand](https://github.com/saianand32)
  
 ##### Made with perseverance and love by 
 #### Team *BitOffensive* ❤️
