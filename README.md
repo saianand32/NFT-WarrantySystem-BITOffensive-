@@ -1,6 +1,6 @@
 ##### By Team "*BitOffensive*"
 
-# ⭕ NFT Warranty System
+#  NFT Warranty System
 
 * The Warranty System of today comes with many flaws of its own. Simple Digital warranties are highly prone to tampering by wrongdoers which results in heavy losses to the retailers in the market today.❌
 
