@@ -169,5 +169,5 @@ Start frontend server
   
   > [Saishwar Anand](https://github.com/saianand32)
  
-##### Made with perseverance and love by 
+##### Made with perseverance and love by
 #### Team *BitOffensive* ❤️
