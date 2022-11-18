@@ -4,7 +4,7 @@
 
 * The Warranty System of today comes with many flaws of its own. Simple Digital warranties are highly prone to tampering by wrongdoers which results in heavy losses to the retailers in the market today.❌
 
-* How can we fix this??
+* How can we fix this?
 
 * Bit offensive store tackles this problem by Decentralizing the entire system of **warranty ownership and claim**.✅
 
